@@ -1,0 +1,107 @@
+﻿
+@{
+    Layout = null;
+}
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+    <title>后台登录</title>
+    <link href="~/Content/LayUI/layui.css" rel="stylesheet" />
+    <link href="~/Content/LayUI/login.css" rel="stylesheet" />
+
+</head>
+
+<body>
+    <div class="m-login-bg">
+        <div class="m-login">
+            <h3>后台系统找回密码</h3>
+            <div class="m-login-warp">
+                <div class="layui-form-item">
+                    <input type="text" id="user" name="title" required lay-verify="required" placeholder="请输入用户名" autocomplete="off" class="layui-input">
+                </div>
+                <div class="layui-form-item">
+                    <input type="password" id="pwd" name="password" required lay-verify="required" placeholder="请输入密码" autocomplete="off" class="layui-input">
+
+                </div>
+                <div class="layui-form-item">
+                    <input type="password" id="pwd2" name="password" required lay-verify="required" placeholder="请确定密码" autocomplete="off" class="layui-input">
+                </div>
+                <div class="layui-form-item">
+                    <input type="text" id="Phone" name="password" required lay-verify="required" placeholder="请输入手机号" autocomplete="off" class="layui-input">
+                </div>
+                <div class="layui-form-item">
+                    <div class="layui-inline">
+                        <input type="text" id="yzm" name="verity" required lay-verify="required" placeholder="验证码" autocomplete="off" class="layui-input">
+                    </div>
+
+                    <div class="layui-inline">
+                        <img class="verifyImg" alt="" onclick="this.src=this.src+'?c='+Math.random();" src="~/ashx/ValidateCode.ashx" id="img1" />
+                    </div>
+
+                </div>
+                <div class="layui-form-item m-login-btn">
+                    <div class="layui-inline">
+                        <button class="layui-btn layui-btn-normal" lay-submit lay-filter="login" id="zc">注册</button>
+                    </div>
+                    <div class="layui-inline">
+                        <button type="reset" class="layui-btn layui-btn-primary">取消</button>
+                    </div>
+                </div>
+
+            </div>
+            <p class="copyright">Copyright 2020 by WangXiKai</p>
+        </div>
+    </div>
+</body>
+</html>
+<script src="~/Scripts/jquery-3.3.1.min.js"></script>
+<script src="~/Scripts/jquery.validate-vsdoc.js"></script>
+<script src="~/Scripts/jquery.unobtrusive-ajax.min.js"></script>
+<script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
+<script>
+    $("#zc").click(function () {
+
+        var pwd  = $("#pwd").val();
+        var pwd2 = $("#pwd2").val();
+        var yzm = $("#yzm").val();
+        if (pwd==pwd2&&pwd!="") {
+            var obj = {
+                UserName:$("#user").val(),
+                PassWord:pwd2,
+                Phone:$("#Phone").val()
+            };
+            $.ajax({
+                url: "CheckValidateCode",
+                type:"POST",
+                dataType: "Json",
+                data: { yzm: yzm },
+                success: function (res) {
+                    if (res>0) {
+                        $.ajax({
+                        url: "http://localhost:10551/api/User/AddUser",
+                        type: "POST",
+                        headers: {token:"eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiIxNzA3QSIsImV4cCI6MTYxNTM2NjE1MSwic3ViIjoiand0IiwiYXVkIjoiMSIsIm5iZiI6MTU4MzgzMDE1MSwiaWF0IjoxNTgzODMwMTUxLCJqdGkiOiIxIn0.vRtoZD8yW89H4mY_p0MVhGorXoVEGoVsAdJivYiPzIg"},
+                        data: {GetUserInfo:obj},
+                        dataType: "Json",
+                            success: function (res) {
+                                if (res>0) {
+                                    alert("注册成功");
+                                }
+                                else {
+                                    alert("注册失败");
+                                }
+                            }
+                        })
+
+                    }
+                }
+            })
+        }
+        else {
+            alert("两次输入密码不同");
+
+        }
+      
+    })
+</script>
