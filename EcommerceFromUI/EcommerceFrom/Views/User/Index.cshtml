@@ -1,0 +1,47 @@
+﻿
+@{
+    Layout = null;
+}
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+    <title>后台登录</title>
+    <link href="~/Content/LayUI/layui.css" rel="stylesheet" />
+    <link href="~/Content/LayUI/login.css" rel="stylesheet" />
+  
+</head>
+
+<body>
+    <div class="m-login-bg">
+        <div class="m-login">
+            <h3>后台系统找回密码</h3>
+            <div class="m-login-warp">
+                <div class="layui-form-item">
+                    <input type="text" id="user" name="password" required lay-verify="required" placeholder="请输入用户名" autocomplete="off" class="layui-input">
+                </div>
+                <div class="layui-form-item">
+                    <input type="password" id="pwd" name="title" required lay-verify="required" placeholder="请输入密码" autocomplete="off" class="layui-input">
+
+                </div>
+                <div class="layui-form-item">
+                    <input type="password" id="pwd2" name="password" required lay-verify="required" placeholder="请确定密码" autocomplete="off" class="layui-input">
+                </div>
+                <div class="layui-form-item">
+                    <input type="text" id="Phone" name="password" required lay-verify="required" placeholder="请输入手机号" autocomplete="off" class="layui-input">
+                </div>
+                <div class="layui-form-item m-login-btn">
+                    <div class="layui-inline">
+                        <button class="layui-btn layui-btn-normal" lay-submit lay-filter="login" id="lg">注册</button>
+                    </div>
+                    <div class="layui-inline">
+                        <button type="reset" class="layui-btn layui-btn-primary">取消</button>
+                    </div>
+                </div>
+
+            </div>
+            <p class="copyright">Copyright 2020 by WangXiKai</p>
+        </div>
+    </div>
+    </body>
+</html>
