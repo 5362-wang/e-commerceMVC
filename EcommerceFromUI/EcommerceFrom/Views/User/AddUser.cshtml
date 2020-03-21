@@ -68,7 +68,7 @@
         if (pwd==pwd2&&pwd!="") {
             var obj = {
                 UserName:$("#user").val(),
-                PassWord:pwd2,
+                Pwd:$("#pwd").val(),
                 Phone:$("#Phone").val()
             };
             $.ajax({
@@ -79,21 +79,18 @@
                 success: function (res) {
                     if (res>0) {
                         $.ajax({
-                        url: "http://localhost:10551/api/User/AddUser",
+                        url: "UserRegist",
                         type: "POST",
-                        headers: {token:"eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiIxNzA3QSIsImV4cCI6MTYxNTM2NjE1MSwic3ViIjoiand0IiwiYXVkIjoiMSIsIm5iZiI6MTU4MzgzMDE1MSwiaWF0IjoxNTgzODMwMTUxLCJqdGkiOiIxIn0.vRtoZD8yW89H4mY_p0MVhGorXoVEGoVsAdJivYiPzIg"},
-                        data: {GetUserInfo:obj},
-                        dataType: "Json",
-                            success: function (res) {
-                                if (res>0) {
-                                    alert("注册成功");
-                                }
-                                else {
-                                    alert("注册失败");
-                                }
+                        data: {userAddRequest:obj},
+                        success: function (res) {
+                            
+                                alert(res.Message);                                                                    
                             }
                         })
+                    }
 
+                    else {
+                        alert("请输入验证码");
                     }
                 }
             })

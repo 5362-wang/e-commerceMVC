@@ -5,6 +5,7 @@ using System.Web;
 using System.Web.Mvc;
 using ApiSDKClient;
 using BLL;
+using BLL.APIRequest;
 namespace EcommerceFrom.Controllers
 {
     public class UserController : Controller
@@ -23,6 +24,7 @@ namespace EcommerceFrom.Controllers
             //bll.AddUser(userAddRequest);
             return View();
         }
+
         public int CheckValidateCode(string yzm)
         {
             int res = 0;
@@ -43,9 +45,15 @@ namespace EcommerceFrom.Controllers
         /// <summary>
         /// 注册功能
         /// </summary>
-        public void UserRegist()
+        public JsonResult UserRegist(UserAddRequest userAddRequest)
         {
+           var res= bll.AddUser(userAddRequest);
 
+            //GET请求返回
+            //return Json(res,JsonRequestBehavior.AllowGet);
+
+            //POST请求返回
+            return Json(res);
         }
     }
 }

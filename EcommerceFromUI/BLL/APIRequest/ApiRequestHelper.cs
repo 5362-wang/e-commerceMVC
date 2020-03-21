@@ -17,6 +17,7 @@ namespace BLL.APIRequest
   public   class ApiRequestHelper
     {
         static string BaseAddress = "http://localhost:10551";
+
         //public static  string Post<T>(T t )where T: BaseRequest
         //{
 
@@ -50,16 +51,16 @@ namespace BLL.APIRequest
         //}
         //地址+具体接口+参数
         //请求头
-        public static TResponse Post<TRequet, TResponse>(TRequet t) where TRequet : BaseRequest where TResponse : BaseResponse //   约束这个泛型T 必须继承BaseRequest
+        public static TResponse Post<TRequet, TResponse>(TRequet t) where TRequet : BaseRequest where TResponse : BaseResponse ,new ()//   约束这个泛型T 必须继承BaseRequest
         {
             var api = t.GetApiName();//拿到接口的名称
 
             HttpClient client = new HttpClient();
+           
             //设置 API的 基地址
             client.BaseAddress = new Uri(BaseAddress);
             //设置 默认请求头ACCEPT 
             client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
-
             string token = ConfigurationManager.AppSettings["token"];
             client.DefaultRequestHeaders.Add("token", token);
 
@@ -75,13 +76,19 @@ namespace BLL.APIRequest
                 var obj = JsonConvert.DeserializeObject<TResponse>(msg.Content.ReadAsStringAsync().Result);
                 if (obj.Status)
                 {
+
                     //表示请求成功
+                    //返回响应结果
+                    return obj;
                 }
-                //返回响应结果
-                return obj;
+                else
+                {
+                    return new TResponse() { Message = msg.ReasonPhrase };
+                }
+               
             }
 
-            return null;
+            return   new TResponse() { Message ="请求失败 请检查网络"};
         }
     }
 }
