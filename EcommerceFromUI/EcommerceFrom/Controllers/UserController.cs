@@ -11,17 +11,24 @@ namespace EcommerceFrom.Controllers
     public class UserController : Controller
     {
         UserBll bll = new UserBll();
+        /// <summary>
+        /// 登录
+        /// </summary>
+        /// <returns></returns>
         public ActionResult Login()
         {
-            UserAddRequest userAddRequest = new UserAddRequest();
-            //bll.AddUser(userAddRequest);
+            
+            
             return View();
         }
         // GET: User
+        /// <summary>
+        /// 注册
+        /// </summary>
+        /// <returns></returns>
         public ActionResult AddUser()
         {
-            //UserAddRequest userAddRequest = new UserAddRequest();
-            //bll.AddUser(userAddRequest);
+           
             return View();
         }
 
@@ -53,6 +60,16 @@ namespace EcommerceFrom.Controllers
             //return Json(res,JsonRequestBehavior.AllowGet);
 
             //POST请求返回
+            return Json(res);
+        }
+        /// <summary>
+        /// 登录功能
+        /// </summary>
+        /// <param name="userAddRequest"></param>
+        /// <returns></returns>
+        public JsonResult UserLogin(UserLoginRequest userLoginRequest)
+        {
+            var res = bll.UserLogin(userLoginRequest);
             return Json(res);
         }
     }

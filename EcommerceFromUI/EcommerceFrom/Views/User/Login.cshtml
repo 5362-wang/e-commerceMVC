@@ -1,0 +1,87 @@
+﻿
+@{
+    Layout = null;
+}
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+    <title>后台登录</title>
+    <link href="~/Content/LayUI/layui.css" rel="stylesheet" />
+    <link href="~/Content/LayUI/login.css" rel="stylesheet" />
+</head>
+
+<body>
+    <div class="m-login-bg">
+        <div class="m-login">
+            <h3>后台系统登录</h3>
+            <div class="m-login-warp">
+
+                <div class="layui-form-item">
+                    <input type="text" id="txtname" name="title" required lay-verify="required" placeholder="用户名" autocomplete="off" class="layui-input">
+                </div>
+                <div class="layui-form-item">
+                    <input type="password" id="txtpwd" name="password" required lay-verify="required" placeholder="密码" autocomplete="off" class="layui-input">
+                </div>
+                <div class="layui-form-item">
+                    <div class="layui-inline">
+                        <input type="text" id="yzm" name="verity" required lay-verify="required" placeholder="验证码" autocomplete="off" class="layui-input">
+                    </div>
+
+                    <div class="layui-inline">
+                        <img class="verifyImg" alt="" onclick="this.src=this.src+'?c='+Math.random();" src="~/ashx/ValidateCode.ashx" id="img1" />
+                    </div>
+
+                </div>
+                <div><a href="" id="wmm">忘记密码</a><a href="/User/AddUser" id="zc">注册用户</a></div>
+                <div class="layui-form-item m-login-btn">
+                    <div class="layui-inline">
+                        <button class="layui-btn layui-btn-normal" lay-submit lay-filter="login" id="lg">登录</button>
+                    </div>
+                    <div class="layui-inline">
+                        <button type="reset" class="layui-btn layui-btn-primary">取消</button>
+                    </div>
+                </div>
+
+            </div>
+            <p class="copyright">Copyright 2015-2016 by XIAODU</p>
+        </div>
+    </div>
+</body>
+<script src="~/Scripts/jquery-3.3.1.min.js"></script>
+<script src="~/Scripts/layui.js"></script>
+<script src="~/Scripts/jquery.validate-vsdoc.js"></script>
+<script src="~/Scripts/jquery.unobtrusive-ajax.min.js"></script>
+<script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
+<script>
+     $("#lg").click(function () {
+            var name = $("#txtname").val();
+            var pwd1 = $("#txtpwd").val();
+            var yzm = $("#yzm").val();
+            $.ajax({
+                url: "CheckValidateCode",
+                data: { yzm: yzm },
+                type: "POST",
+                dataType: "Json",
+                success: function (res) {
+                    if (res > 0) {
+                        $.ajax({
+                            url: "UserLogin",
+                            type: "POST",
+                            dataType: "JSON",
+                            data: {
+                                UserName: name,
+                                PassWord: pwd1
+                            },
+                            success: function (res) {
+                                alert(res.Message);
+                            }
+                        })
+                    }
+                    else {
+                        alert("登录失败验证码有误");
+                    }
+                }
+            })
+
+        })
+</script>
