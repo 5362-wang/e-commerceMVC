@@ -10,16 +10,32 @@
         <link href="~/Content/LayUI/layui.css" rel="stylesheet" />
     </head>
     <body>
-
         <div class="layui-carousel" id="test1">
             <div carousel-item>
-                <div>条目1</div>
-                <div>条目2</div>
-                <div>条目3</div>
-                <div>条目4</div>
-                <div>条目5</div>
+                <div >
+                    <img style="width: 100%; height: 100%;"  src="~/Content/LayUI/font/IMG/1.png" />
+                </div>
+                <div>
+                    <img style="width: 100%; height: 100%;" src="~/Content/LayUI/font/IMG/2.png" />
+                </div>
+                <div>
+                    <img style="width: 100%; height: 100%;" src="~/Content/LayUI/font/IMG/3.png" />
+                </div>
+                <div>
+                    <img style="width: 100%; height: 100%;" src="~/Content/LayUI/font/IMG/4.png" />
+                </div>
+                <div>
+                    <img style="width: 100%; height: 100%;" src="~/Content/LayUI/font/IMG/5.png" />
+                </div>
+                <div>
+                    <img style="width: 100%; height: 100%;" src="~/Content/LayUI/font/IMG/6.png" />
+                </div>
+                <div>
+                    <img style="width: 100%; height: 100%;" src="~/Content/LayUI/font/IMG/7.png" />
+                </div>
             </div>
         </div>
+
         <!-- 条目中可以是任意内容，如：<img src=""> -->
         <script src="~/Content/LayUI/layui.js"></script>
         <script>
@@ -29,8 +45,11 @@
                 carousel.render({
                     elem: '#test1'
                     , width: '100%' //设置容器宽度
+                    ,height:'50%'//设置高度
                     , arrow: 'always' //始终显示箭头
-                    //,anim: 'updown' //切换动画方式
+                    , autoplay: true
+                    ,interval:3000
+                   //,anim: 'updown' //切换动画方式
                 });
             });
         </script>

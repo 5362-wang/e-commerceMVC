@@ -28,5 +28,14 @@ namespace BLL
         {
             return ApiRequestHelper.Post<UserLoginRequest, UserLoginResponse>(userLoginResponse);
         }
+        /// <summary>
+        /// 修改密码
+        /// </summary>
+        /// <param name="userFindRequest"></param>
+        /// <returns></returns>
+        public UserFindResponse UserFind(UserFindRequest userFindRequest)
+        {
+            return ApiRequestHelper.Post<UserFindRequest, UserFindResponse>(userFindRequest);
+        }
     }
 }

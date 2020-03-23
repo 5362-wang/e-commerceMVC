@@ -32,13 +32,13 @@
                     </div>
 
                 </div>
-                <div><a href="" id="wmm">忘记密码</a><a href="/User/AddUser" id="zc">注册用户</a></div>
+                <div><a href="/User/FindPwd" id="wmm">忘记密码</a><a href="/User/AddUser" id="zc">注册用户</a></div>
                 <div class="layui-form-item m-login-btn">
                     <div class="layui-inline">
                         <button class="layui-btn layui-btn-normal" lay-submit lay-filter="login" id="lg">登录</button>
                     </div>
                     <div class="layui-inline">
-                        <button type="reset" class="layui-btn layui-btn-primary">取消</button>
+                        <button type="reset" id="cel" class="layui-btn layui-btn-primary">取消</button>
                     </div>
                 </div>
 
@@ -73,11 +73,12 @@
                             PassWord: pwd1
                         },
                         success: function (res) {
+
                             layui.use('layer', function () {
                                 var layer = layui.layer;
-
                                 layer.msg(res.Message);
                             });
+                            location.href = '/Commodity/HomePage';
                         }
                     })
                 }
@@ -92,4 +93,5 @@
         })
 
     })
+ 
 </script>
