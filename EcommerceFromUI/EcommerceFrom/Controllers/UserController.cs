@@ -17,7 +17,8 @@ namespace EcommerceFrom.Controllers
         /// </summary>
         /// <returns></returns>
         public ActionResult Login()
-        {                     
+        {      
+            
             return View();
         }
         // GET: User
@@ -38,7 +39,19 @@ namespace EcommerceFrom.Controllers
         {
             return View();
         }
-
+        /// <summary>
+        /// 权限管理
+        /// </summary>
+        /// <returns></returns>
+        public ActionResult Permit()
+        {
+            return View();
+        }
+        /// <summary>
+        /// 验证码
+        /// </summary>
+        /// <param name="yzm"></param>
+        /// <returns></returns>
         public int CheckValidateCode(string yzm)
         {
             int res = 0;
@@ -65,7 +78,7 @@ namespace EcommerceFrom.Controllers
         public string Send(string JiShou, int Count)
         {
             string YZM = CreateBlendCode(Count);
-            Session["YZM"] = YZM;
+          
             //发件人地址
             MailAddress from = new MailAddress("wxk17625056013@163.com");
             MailMessage message = new MailMessage();
@@ -148,6 +161,10 @@ namespace EcommerceFrom.Controllers
         public JsonResult UserLogin(UserLoginRequest userLoginRequest)
         {
             var res = bll.UserLogin(userLoginRequest);
+            Session["DepartmentId"] = res.DepartmentId;
+            Session["Uid"] = res.Uid;
+            Session["UserName"] = res.UserName;
+            Session["UserImg"] = res.UserImg;
             return Json(res);
         }
         /// <summary>

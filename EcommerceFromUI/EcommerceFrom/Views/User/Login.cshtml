@@ -73,12 +73,19 @@
                             PassWord: pwd1
                         },
                         success: function (res) {
-
-                            layui.use('layer', function () {
-                                var layer = layui.layer;
-                                layer.msg(res.Message);
-                            });
-                            location.href = '/Commodity/HomePage';
+                            if (res.LoginSuccess == true) {
+                                layui.use('layer', function () {
+                                    var layer = layui.layer;
+                                    layer.msg(res.Message);
+                                });
+                                location.href = '/Commodity/HomePage';
+                            }
+                            else {
+                                layui.use('layer', function () {
+                                    var layer = layui.layer;
+                                    layer.msg(res.Message);
+                                });
+                            }
                         }
                     })
                 }
@@ -93,5 +100,5 @@
         })
 
     })
- 
+
 </script>

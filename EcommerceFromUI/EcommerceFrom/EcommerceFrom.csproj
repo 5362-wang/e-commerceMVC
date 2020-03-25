@@ -136,6 +136,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Content\images\login\ldy.jpg" />
     <Content Include="Content\images\login\login_bg.jpg" />
     <Content Include="Content\LayUI\font\IMG\1.png" />
     <Content Include="Content\LayUI\font\IMG\2.png" />
@@ -303,6 +304,7 @@
     <Content Include="Views\User\Login.cshtml" />
     <Content Include="Views\Commodity\HomePage.cshtml" />
     <Content Include="Views\User\FindPwd.cshtml" />
+    <Content Include="Views\User\Permit.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
