@@ -177,5 +177,15 @@ namespace EcommerceFrom.Controllers
             var res = bll.UserFind(userFindRequest);
             return Json(res);
         }
+        /// <summary>
+        /// 获取用户信息
+        /// </summary>
+        /// <param name="userGetRequest"></param>
+        /// <returns></returns>
+        public JsonResult GetUser(UserGetRequest userGetRequest)
+        {
+            var res = bll.GetUser(userGetRequest);
+            return Json(res);
+        }
     }
 }
