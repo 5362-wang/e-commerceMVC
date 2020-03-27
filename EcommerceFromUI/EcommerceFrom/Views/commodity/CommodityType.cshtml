@@ -1,0 +1,38 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<table>
+    <tr>
+        <td>添加类别</td>
+        <td><input id="Text1" type="text" /></td>
+    </tr>
+</table>
+<input id="Button1" type="button" value="添加" />
+
+<script src="~/Scripts/jquery-3.3.1.min.js"></script>
+<script src="~/Scripts/Comt/jquery.unobtrusive-ajax.min.js"></script>
+<script>
+    var info = {
+        TypeName: jQuery("#Text1").val(),
+    };
+
+    $.ajax({
+        url: "/Commodity/CommodityType",
+        dataType: "json",
+        type: "Post",
+        data: info,
+        success: function (res) {
+            if (res > 0) {
+                alert("添加成功");
+            }
+            else {
+                alert("添加失败");
+            }
+        }
+    })
+
+</script>

@@ -163,8 +163,8 @@ namespace EcommerceFrom.Controllers
             var res = bll.UserLogin(userLoginRequest);
             Session["DepartmentId"] = res.DepartmentId;
             Session["Uid"] = res.Uid;
-            Session["UserName"] = res.UserName;
-            Session["UserImg"] = res.UserImg;
+           // Session["UserName"] = res.UserName;
+            //Session["UserImg"] = res.UserImg;
             return Json(res);
         }
         /// <summary>
