@@ -501,6 +501,8 @@
     <Content Include="Views\User\FindPwd.cshtml" />
     <Content Include="Views\User\Permit.cshtml" />
     <Content Include="Views\Order\ShowOrderInfo.cshtml" />
+    <Content Include="Views\Order\AddOrderInfo.cshtml" />
+    <Content Include="Views\Order\UpdateOrderInfo.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
