@@ -37,5 +37,14 @@ namespace BLL
         {
             return ApiRequestHelper.Post<UserFindRequest, UserFindResponse>(userFindRequest);
         }
+        /// <summary>
+        /// 获取员工信息
+        /// </summary>
+        /// <param name="userGetRequest"></param>
+        /// <returns></returns>
+        public UserGetResponse GetUser(UserGetRequest userGetRequest)
+        {
+            return ApiRequestHelper.Post<UserGetRequest, UserGetResponse>(userGetRequest);
+        }
     }
 }
