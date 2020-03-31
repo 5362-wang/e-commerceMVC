@@ -60,7 +60,8 @@ namespace EcommerceFrom.Controllers
         /// <returns></returns>
         public JsonResult QueryOrderTypeMethod(OrderQueryOrderTypeRequest request)
         {
-            return Json(request);
+            var list = bll.QueryOrderType(request);
+            return Json(list);
         }
 
         /// <summary>
@@ -102,7 +103,8 @@ namespace EcommerceFrom.Controllers
         /// <returns></returns>
         public JsonResult GetOneOrderInfoMethod(OrderGetOneOrderInfoRequest request)
         {
-            return Json(request);
+            var res = bll.GetOneOrderInfo(request);
+            return Json(res);
         }
 
         /// <summary>
@@ -123,8 +125,8 @@ namespace EcommerceFrom.Controllers
         /// <param name="id"></param>
         public JsonResult UpdateOrderInfoMethod(OrderUpdateRequest request)
         {
-
-            return Json(request);
+            var res = bll.UpdateOrderInfo(request);
+            return Json(res);
         }
     }
 }

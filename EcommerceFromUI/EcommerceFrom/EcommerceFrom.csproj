@@ -135,6 +135,9 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="UpLoad.ashx.cs">
+      <DependentUpon>UpLoad.ashx</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\images\login\ldy.jpg" />
@@ -799,11 +802,13 @@
     <Content Include="Views\Order\ShowOrderInfo.cshtml" />
     <Content Include="Views\Order\AddOrderInfo.cshtml" />
     <Content Include="Views\Order\UpdateOrderInfo.cshtml" />
+    <Content Include="UpLoad.ashx" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Content\OrderLayUI\OrderLayUi\common\larry\" />
     <Folder Include="Models\" />
+    <Folder Include="OrderImg\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />

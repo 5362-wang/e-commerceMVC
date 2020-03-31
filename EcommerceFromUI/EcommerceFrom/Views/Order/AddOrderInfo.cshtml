@@ -1,7 +1,220 @@
 ﻿
-@{
-    ViewBag.Title = "AddOrderInfo";
-}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>个人信息</title>
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
 
-<h2>添加页面</h2>
+    <link href="~/Content/OrderLayUI/OrderLayUi/common/layui/css/layui.css" rel="stylesheet" />
+    <link href="~/Content/OrderLayUI/OrderLayUi/common/bootstrap/css/bootstrap.css" rel="stylesheet" />
+    <link href="~/Content/OrderLayUI/OrderLayUi/common/global.css" rel="stylesheet" />
+    <link href="~/Content/OrderLayUI/OrderLayUi/css/personal.css" rel="stylesheet" />
 
+
+</head>
+<body>
+    <section class="layui-larry-box">
+
+        <div class="larry-personal">
+            <header class="larry-personal-tit">
+                <span>个人信息</span>
+            </header><!-- /header -->
+            <div class="larry-personal-body clearfix">
+
+                <div class="layui-form-item">
+                    <label class="layui-form-label">下单时间</label>
+                    <div class="layui-input-block">
+                        <input type="text" name="title" autocomplete="off" class="layui-input layui-input" id="sj">
+                    </div>
+                </div>
+                <div class="layui-form-item">
+                    <label class="layui-form-label">订单名称</label>
+                    <div class="layui-input-block">
+                        <input type="text" name="username" autocomplete="off" class="layui-input layui-input" id="mc">
+                    </div>
+                </div>
+                <div class="layui-form-item">
+                    <label class="layui-form-label">订单图片</label>
+                    <div class="layui-input-block">
+                        <form id="ImgForm" menthod="post">
+                            <input type="file" name="file" id="tp">
+                        </form>
+                        
+                    </div>
+                </div>
+                <div class="layui-form-item">
+                    <label class="layui-form-label">订单规格</label>
+                    <div class="layui-input-block">
+                        <select name="interest" lay-filter="aihao" id="selectgg">
+                            <option value="0">请选择</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="layui-form-item">
+                    <label class="layui-form-label">订单数量</label>
+                    <div class="layui-input-block">
+                        <input type="text" name="username" autocomplete="off" class="layui-input" id="sl">
+                    </div>
+                </div>
+                <div class="layui-form-item">
+                    <label class="layui-form-label">优惠力度</label>
+                    <div class="layui-input-block">
+                        <select name="interest" lay-filter="aihao" id="selectyh">
+                            <option value="0">请选择</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="layui-form-item">
+                    <label class="layui-form-label">订单价格</label>
+                    <div class="layui-input-block">
+                        <input type="text" name="username" autocomplete="off" class="layui-input" id="jg">
+                    </div>
+                </div>
+                <div class="layui-form-item">
+                    <label class="layui-form-label">订单状态类型</label>
+                    <div class="layui-input-block">
+                        <select name="interest" lay-filter="aihao" id="selecttypeid">
+                            <option value="0">请选择</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="layui-form-item">
+                    <label class="layui-form-label">收货人</label>
+                    <div class="layui-input-block">
+                        <input type="text" name="username" autocomplete="off" class="layui-input" id="shr">
+                    </div>
+                </div>
+                <div class="layui-form-item">
+                    <label class="layui-form-label">收货人电话</label>
+                    <div class="layui-input-block">
+                        <input type="text" name="username" autocomplete="off" class="layui-input" id="shrdh">
+                    </div>
+                </div>
+            </div>
+            <div class="layui-form-item">
+                <label class="layui-form-label">创建人</label>
+                <div class="layui-input-block">
+                    <input type="text" name="username" autocomplete="off" class="layui-input" id="cjr">
+                </div>
+            </div>
+            <div class="layui-form-item">
+                <label class="layui-form-label">修改人</label>
+                <div class="layui-input-block">
+                    <input type="text" name="username" autocomplete="off" class="layui-input" id="xgr">
+                </div>
+            </div>
+            <div class="layui-form-item">
+                <label class="layui-form-label">修改时间</label>
+                <div class="layui-input-block">
+                    <input type="text" name="username" autocomplete="off" class="layui-input" id="xgsj">
+                </div>
+            </div>
+            <div class="layui-form-item">
+                <div class="layui-input-block">
+                    <button class="layui-btn" onclick="Save()">立即提交</button>
+                    <button type="reset" class="layui-btn layui-btn-primary">重置</button>
+                </div>
+            </div>
+        </div>
+    </section>
+    <script src="~/Content/OrderLayUI/OrderLayUi/common/layui/layui.js"></script>
+    <script src="~/Scripts/jquery-3.3.1.min.js"></script>
+    <script src="~/Scripts/jquery.validate-vsdoc.js"></script>
+    <script src="~/Scripts/jquery.unobtrusive-ajax.min.js"></script>
+    <script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
+    <script>
+        $().ready(function () {
+            //订单状态（走到哪了）
+            $.ajax({
+                url: "/Order/QueryOrderTypeMethod",
+                type: "POST",
+                dataType: "JSON",
+                success: function (res) {
+                    var op = "";
+                    $(res.QueryOrderType).each(function () {
+                        op += "<option value=" + this.OrderTypeId + ">" + this.OrderTypeName + "</option>";
+                    })
+                    $("#selecttypeid").append(op);
+                }
+            });
+            //优惠信息
+            $.ajax({
+                url: "/Order/QueryDiscountsInfoMethod",
+                type: "POST",
+                dataType: "JSON",
+                success: function (res) {
+                    var op = "";
+                    $(res.QueryDiscountsInfo).each(function () {
+                        op += "<option value=" + this.DiscountsId + ">" + this.DiscountsWay + "</option>";
+                    })
+                    $("#selectyh").append(op);
+                }
+            });
+            // 商品规格
+            $.ajax({
+                url: "/Order/QueryCommodityTypeMethod",
+                type: "POST",
+                dataType: "JSON",
+                success: function (res) {
+                    var op = "";
+                    $(res.QueryCommodityType).each(function () {
+                        op += "<option value=" + this.CtypeId + ">" + this.TypeName + "</option>";
+                    })
+                    $("#selectgg").append(op);
+                }
+            });
+        });
+
+        function Save() {
+            var Img = new FormData(($("#ImgForm")[0]));
+            $.ajax({
+                url: "/UpLoad.ashx",
+                type: "POST",
+                data: Img,
+                contentType: false,
+                processData: false,
+                success: function (data) {
+                    var obj =
+                    {
+                        BoughtTime : $("#sj").val(),
+                        OrderName : $("#mc").val(),
+                        CommodityImg : data,
+                        OrderSize : $("#selectgg").val(),
+                        OrderCount : $("#sl").val(),
+                        YhId : $("#selectyh").val(),
+                        OrderPrice : $("#jg").val(),
+                        OrderTypeId : $("#selecttypeid").val(),
+                        Consignee : $("#shr").val(),
+                        ConsigneeTel : $("#shrdh").val(),
+                        CreateId : $("#cjr").val(),
+                        UpdateId : $("#xgr").val(),
+                        CreateTime : $("#cjsj").val(),
+                        UpdateTime : $("#xgsj").val(),
+                    };
+                    $.ajax({
+                        url: "/Order/AddOrderInfoMethod",
+                        type: "POST",
+                        dataType: "Json",
+                        data: obj,
+                        success: function (res) {
+                            if (res.IsAddSuccess > 0) {
+                                alert("添加成功");
+                                location.href = "/Order/ShowOrderInfo";
+                            } else {
+                                alert("添加失败");
+                                return;
+                            }
+                        }
+                    });
+                }
+            });
+        }
+    </script>
+</body>
+</html>
