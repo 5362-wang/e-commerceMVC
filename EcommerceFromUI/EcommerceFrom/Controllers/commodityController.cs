@@ -23,15 +23,23 @@ namespace EcommerceFrom.Controllers
         /// <returns></returns>
         public ActionResult CommodityPage()
         {
-            
             return View();
+        }
+        public JsonResult CommodityPageShow(CommodityShowRequest request)
+        {
+            var res = bll.CommodityShow(request);
+            return Json(res);
         }
 
         /// <summary>
         ///添加颜色
         /// </summary>
         /// <returns></returns>
-        public JsonResult CommodityColor(CommColorAddRequest request)
+        public ActionResult CommodityColor()
+        {
+            return View();
+        }
+        public JsonResult CommodityColorAdd(CommColorAddRequest request)
         {
             var res = bll.ColorAdd(request);
             return Json(res);
@@ -40,9 +48,14 @@ namespace EcommerceFrom.Controllers
         ///添加商品
         /// </summary>
         /// <returns></returns>
-        public JsonResult CommodityAdd(CommodityAddRequest request)
+        public ActionResult CommodityAdd()
+        {
+            return View();
+        }
+        public JsonResult CommodityAddadd(CommodityAddRequest request)
         {
             var res = bll.CommodityAdd(request);
+
             return Json(res);
         }
 
@@ -50,7 +63,11 @@ namespace EcommerceFrom.Controllers
         /// 添加类别
         /// </summary>
         /// <returns></returns>
-        public JsonResult CommodityType(CommTypeAddRequest request)
+        public ActionResult CommodityType()
+        {
+            return View();
+        }
+        public JsonResult CommodityTypeAdd(CommTypeAddRequest request)
         {
             var res = bll.TypeAdd(request);
             return Json(res);
@@ -66,6 +83,18 @@ namespace EcommerceFrom.Controllers
             var res = bll.TypeShow(request);
             return Json(res);
         }
+
+        /// <summary>
+        /// 商品查询
+        /// </summary>
+        /// <param name="request"></param>
+        /// <returns></returns>
+        public JsonResult ComodityInquire(CommodityInquireRequest request)
+        {
+            var res = bll.InquireCommodity(request);
+            return Json(res);
+        }
+
 
     }
 }

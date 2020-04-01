@@ -8,7 +8,7 @@
 
 <table>
     <head>
-        <title>Home</title>
+        <title>商品管理</title>
         <meta charset="utf-8" />
         <meta name="description" content="" />
         <meta name="keywords" content="" />
@@ -16,12 +16,26 @@
         <link href="https://fonts.googleapis.com/css?family=Playfair+Display:400,400i,700,700i,900,900i" rel="stylesheet" />
         <link href="https://fonts.googleapis.com/css?family=Roboto:100,100i,300,300i,400,400i,500,500i,700,700i,900,900i" rel="stylesheet" />
         <link href="~/css/main.css" rel="stylesheet" />
+        &nbsp;
     </head>
     <body class="animsition">
         <div class="shop-layout-1" id="page">
             <section class="box-sm">
                 <div class="container">
                     <div class="row main">
+                        <button class="btn btn-brand-ghost pill" onclick="window.location.href='http://localhost:45248/Commodity/CommodityAdd'">添加商品</button>
+                        <button class="btn btn-brand-ghost pill" onclick="window.location.href='http://localhost:45248/Commodity/CommodityType'">添加商品类别</button>
+                        <button class="btn btn-brand-ghost pill" onclick="window.location.href=''http://localhost:45248/Commodity/CommodityColor">添加商品颜色</button>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        <select class="btn btn-brand-ghost pill">
+                            <option>衣服</option>
+                            <option>裤子</option>
+                            <option>包</option>
+                            <option>运动服</option>
+                        </select>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+                        <input id="Text1" class="btn btn-brand-ghost pill" type="text" />&nbsp;<button class="btn btn-brand-ghost pill" onclick="Inquire()">查询</button>
                         <div class="row product-grid-equal-height-wrapper product-equal-height-4-columns flex multi-row">
                             <figure class="item">
                                 <div class="product product-style-1">
@@ -44,7 +58,7 @@
                                                 <a class="animate-icon-cart" href="#">
                                                     <span class="lnr lnr-cart"></span>
                                                 </a>
-                                                <svg x="0px" y="0px" width="36px" height="32px" viewbox="0 0 36 32">
+                                                <svg x="0px" y="0px" width="30px" height="25px" viewbox="0 0 330 26">
                                                     <path stroke-dasharray="19.79 19.79" fill="none" ,="," stroke-width="2" stroke-linecap="square" stroke-miterlimit="10" d="M9,17l3.9,3.9c0.1,0.1,0.2,0.1,0.3,0L23,11"></path>
                                                 </svg>
                                             </div>
@@ -97,7 +111,6 @@
                                 <div class="product product-style-1">
                                     <div class="img-wrapper">
                                         <a href="#">
-
                                             <img src="~/img/7.jpg" alt="product thumbnail" class="img-responsive" />
                                         </a>
                                         <div class="product-control-wrapper bottom-right">
@@ -529,7 +542,6 @@
                                     <div class="desc">
                                         <div class="header-desc">
                                             <h2 class="product-title">Sald</h2>
-
                                             <p class="price" id="CommodityPrice">$2.00</p>
                                             <a>请选择颜色：</a>
                                             <select id="Select1" \d>
@@ -540,13 +552,12 @@
                                                 <option>绿色</option>
                                             </select>
                                             &nbsp;
-                                            <p><a href="#">库存：100</p>
+                                            <p><a href="#">库存：100</a></p>
                                             <p><a href="#">商品销售量：50</a></p>
                                             <p><a href="#">上架状态：上架</a></p>
                                             <p><a href="#">商品详情 ：非常好</a></p>
-                                            <input id="Button1" type="button" value="加入购物车"style="background-color:brown"  size="50"/>
+                                            <input id="Button1" type="button" value="加入购物车" style="background-color:brown" size="50" />
                                         </div>
-
                                     </div>
                                 </div>
                             </div>
@@ -554,8 +565,6 @@
                     </div>
                 </div>
             </div>
-        </div>
-        </div>
 
         <script src="~/Scripts/Comt/jquery.min.js"></script>
         <script src="~/Scripts/Comt/bootstrap.min.js"></script>
@@ -576,7 +585,7 @@
         <script src="~/Scripts/Comt/config-carousel-product-quickview.js"></script>
         <!-- Demo Only-->
         <script src="~/Scripts/Comt/demo-add-to-cart.js"></script>
-
+        <script src="~/Scripts/Comt/layui.js"></script>
 
         <script src="~/Scripts/Comt/jquery.unobtrusive-ajax.min.js"></script>
     </body>
@@ -597,6 +606,36 @@
             }
         })
     })
+
+    //查询
+    function Toquery(page) {
+        $.ajax({
+            type: "POST",
+            url: '/Commodity/ComodityInquire',
+            data: { pageNum: 1, pageSize: 10 },
+            success: function (data) {
+                HideLoad('body');
+                $("#result").html(data);
+            },
+            error: function (xhr) {
+                HideLoad('body');
+                displayError(xhr);
+            }
+        });
+        if (page = "add") {
+            var insert = $("#insert");
+            insert.css("display", "none");
+        }
+        if (page = "update") {
+            var modify = $("#modify")
+            modify.css("display", "none");
+        }
+        var query = $("#search");
+        query.css("display", "block");
+        var result = $("#result");
+        result.css("display", "block");
+
+    }
 
 
 </script>

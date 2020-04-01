@@ -11,25 +11,26 @@
         <td><input id="Text1" type="text" /></td>
     </tr>
 </table>
-<input id="Button1" type="button" value="添加颜色" />
+<input id="Button1" type="button" onclick="col()" value="添加颜色" />
 
 
 <script src="~/Scripts/jquery-3.3.1.min.js"></script>
-<script src="~/Scripts/Comt/jquery.unobtrusive-ajax.min.js"></script>
+<script src="~/Scripts/jquery.validate-vsdoc.js"></script>
+<script src="~/Scripts/jquery.unobtrusive-ajax.min.js"></script>
+<script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
 <script>
 
-    $().ajax(function () {
+    function col() {
         var info = {
             Color: jQuery("#Text1").val(),
-        };
-
+        }
         $.ajax({
-            url: "/Commodity/CommodityColor",
-            dataType: "json",
-            type: "Post",
+            url: "/Commodity/CommodityColorAdd",
+            type: "POST",
+            dataType: "JSON",
             data: info,
             success: function (res) {
-                if (res > 0) {
+                if (res.ColorSuccess == true) {
                     alert("添加成功");
                 }
                 else {
@@ -37,7 +38,8 @@
                 }
             }
         })
-    })
+    }
+
 
 
 
