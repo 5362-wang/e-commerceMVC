@@ -32,7 +32,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="ApiSDKClient">
-      <HintPath>..\..\..\1\EcommerceApi\EcommerceApi\ApiSDKClient\bin\Debug\ApiSDKClient.dll</HintPath>
+      <HintPath>..\..\..\克隆文件夹(1)\EcommerceApi\EcommerceApi\ApiSDKClient\bin\Debug\ApiSDKClient.dll</HintPath>
     </Reference>
     <Reference Include="Newtonsoft.Json, Version=6.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
@@ -50,7 +50,6 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="APIRequest\ApiRequestHelper.cs" />
-    <Compile Include="Comt\CommodityBll.cs" />
     <Compile Include="UserBll.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

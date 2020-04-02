@@ -46,7 +46,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="ApiSDKClient">
-      <HintPath>..\..\..\1\EcommerceApi\EcommerceApi\ApiSDKClient\bin\Debug\ApiSDKClient.dll</HintPath>
+      <HintPath>..\..\..\克隆文件夹(1)\EcommerceApi\EcommerceApi\ApiSDKClient\bin\Debug\ApiSDKClient.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System" />
@@ -128,18 +128,17 @@
     </Compile>
     <Compile Include="Controllers\CommodityController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\OrderController.cs" />
     <Compile Include="Controllers\UserController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Uplod.ashx.cs">
-      <DependentUpon>Uplod.ashx</DependentUpon>
-    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\images\login\ldy.jpg" />
     <Content Include="Content\images\login\login_bg.jpg" />
+    <Content Include="Content\images\login\logo.jpg" />
     <Content Include="Content\LayUI\echarts.js" />
     <Content Include="Content\LayUI\font\IMG\1.png" />
     <Content Include="Content\LayUI\font\IMG\2.png" />
@@ -550,11 +549,6 @@
     <Content Include="Content\LayUI\lib\ueditor\ueditor.parse.js" />
     <Content Include="Content\LayUI\lib\ueditor\ueditor.parse.min.js" />
     <Content Include="Content\LayUI\login.css" />
-    <Content Include="css\bootstrap.css" />
-    <Content Include="css\global.css" />
-    <Content Include="css\layui.css" />
-    <Content Include="css\main.css" />
-    <Content Include="css\personal.css" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
@@ -585,6 +579,32 @@
     <Content Include="Content\LayUI\font\iconfont.ttf" />
     <Content Include="Content\LayUI\font\iconfont.woff" />
     <Content Include="Content\LayUI\font\iconfont.woff2" />
+    <Content Include="Content\OrderLayUI\OrderLayUi\common\bootstrap\css\bootstrap-theme.css.map" />
+    <Content Include="Content\OrderLayUI\OrderLayUi\common\bootstrap\css\bootstrap.css.map" />
+    <Content Include="Content\OrderLayUI\OrderLayUi\common\bootstrap\fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="Content\OrderLayUI\OrderLayUi\common\bootstrap\fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="Content\OrderLayUI\OrderLayUi\common\bootstrap\fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="Content\OrderLayUI\OrderLayUi\common\font\fontawesome-webfont.eot" />
+    <Content Include="Content\OrderLayUI\OrderLayUi\common\font\fontawesome-webfont.ttf" />
+    <Content Include="Content\OrderLayUI\OrderLayUi\common\font\fontawesome-webfont.woff" />
+    <Content Include="Content\OrderLayUI\OrderLayUi\common\font\fontawesome-webfont.woff2" />
+    <Content Include="Content\OrderLayUI\OrderLayUi\common\font\FontAwesome.otf" />
+    <Content Include="Content\OrderLayUI\OrderLayUi\common\font\iconfont.eot" />
+    <Content Include="Content\OrderLayUI\OrderLayUi\common\font\iconfont.ttf" />
+    <Content Include="Content\OrderLayUI\OrderLayUi\common\font\iconfont.woff" />
+    <Content Include="Content\OrderLayUI\OrderLayUi\common\font\pxgridsicons.eot" />
+    <Content Include="Content\OrderLayUI\OrderLayUi\common\font\pxgridsicons.ttf" />
+    <Content Include="Content\OrderLayUI\OrderLayUi\common\font\pxgridsicons.woff" />
+    <Content Include="Content\OrderLayUI\OrderLayUi\common\layui\css\modules\layim\html\getmsg.json" />
+    <Content Include="Content\OrderLayUI\OrderLayUi\common\layui\font\iconfont.eot" />
+    <Content Include="Content\OrderLayUI\OrderLayUi\common\layui\font\iconfont.ttf" />
+    <Content Include="Content\OrderLayUI\OrderLayUi\common\layui\font\iconfont.woff" />
+    <Content Include="Content\OrderLayUI\OrderLayUi\css\font\adminthemes-webfont.eot" />
+    <Content Include="Content\OrderLayUI\OrderLayUi\css\font\adminthemes-webfont.ttf" />
+    <Content Include="Content\OrderLayUI\OrderLayUi\css\font\adminthemes-webfont.woff" />
+    <Content Include="Content\OrderLayUI\OrderLayUi\css\font\adminthemes-webfont.woff2" />
+    <Content Include="Content\OrderLayUI\OrderLayUi\css\font\adminThemes.ttf" />
+    <Content Include="Content\OrderLayUI\OrderLayUi\json\table.json" />
     <Content Include="Content\LayUI\lib\ueditor\php\config.json" />
     <Content Include="Content\LayUI\lib\ueditor\third-party\jquery-1.10.2.min.map" />
     <Content Include="Content\LayUI\lib\ueditor\third-party\video-js\font\vjs.eot" />
@@ -670,17 +690,11 @@
     <Content Include="Views\Commodity\HomePage.cshtml" />
     <Content Include="Views\User\FindPwd.cshtml" />
     <Content Include="Views\User\Permit.cshtml" />
-    <Content Include="Views\Commodity\CommodityPage.cshtml" />
-    <Content Include="Views\Commodity\CommodityColor.cshtml" />
-    <Content Include="Views\Commodity\CommodityAdd.cshtml" />
-    <Content Include="Views\Commodity\CommodityType.cshtml" />
-    <Content Include="Uplod.ashx" />
-    <Content Include="Views\Commodity\CommodityShows.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Content\OrderLayUI\OrderLayUi\common\larry\" />
     <Folder Include="Models\" />
-    <Folder Include="Tupian\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />

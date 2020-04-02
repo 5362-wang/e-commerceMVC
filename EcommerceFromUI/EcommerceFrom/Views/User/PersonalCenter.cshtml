@@ -1,0 +1,85 @@
+﻿
+@{
+    ViewBag.Title = "PersonalCenter";
+}
+
+<form style="width:100%;height:100%" class="layui-form" action="">
+    <link href="~/Content/LayUI/layui.css" rel="stylesheet" />
+    <input type="text" value="@Session["Uid"]" id="uid" />
+    <div class="layui-form-item">
+        <label class="layui-form-label">用户名</label>
+        <div class="layui-input-inline">
+            <input type="text" id="username" name="username" required lay-verify="required" placeholder="请输入用户名" autocomplete="off" class="layui-input">
+        </div>
+    </div>
+    <div class="layui-form-item">
+        <label class="layui-form-label">绑定头像</label>
+        <div class="layui-input-inline">
+
+            <img style="width:120px;height:80px" src="" />
+        </div>
+        <div class="layui-input-inline">
+            <button type="button" class="layui-btn" id="test1">
+                <i class="layui-icon">&#xe67c;</i>上传图片
+            </button>
+        </div>
+    </div>
+    <div class="layui-form-item">
+        <label class="layui-form-label">绑定邮箱</label>
+        <div class="layui-input-inline">
+            <input type="text" name="email" required lay-verify="required" placeholder="请绑定邮箱" autocomplete="off" class="layui-input">
+        </div>
+        <div class="layui-form-mid layui-word-aux">请绑定邮箱</div>
+    </div>
+    <div class="layui-form-item">
+        <label class="layui-form-label">绑定手机号</label>
+        <div class="layui-input-inline">
+            <input type="text" name="phone" required lay-verify="required" placeholder="请绑定手机号" autocomplete="off" class="layui-input">
+        </div>
+        <div class="layui-form-mid layui-word-aux">请绑定手机号码</div>
+    </div>
+
+    <div class="layui-form-item">
+        <label class="layui-form-label">真实姓名</label>
+        <div class="layui-input-inline">
+            <input type="text" name="phone" required lay-verify="required" placeholder="请输入真实姓名" autocomplete="off" class="layui-input">
+        </div>
+        <div class="layui-form-mid layui-word-aux">请填写真实姓名</div>
+    </div>
+    <div class="layui-form-item">
+        <label class="layui-form-label">单选框</label>
+        <div class="layui-input-block">
+            <input type="radio" name="sex" value="男" title="男">
+            <input type="radio" name="sex" value="女" title="女" checked>
+        </div>
+    </div>
+    <div class="layui-form-item">
+        <div class="layui-input-block">
+            <button class="layui-btn" id="bcs" lay-submit lay-filter="formDemo">立即提交</button>
+            <button type="reset" class="layui-btn layui-btn-primary">重置</button>
+        </div>
+    </div>
+</form>
+<script src="~/Content/LayUI/layui.js"></script>
+<script src="~/Scripts/jquery-3.3.1.min.js"></script>
+<script src="~/Scripts/jquery.validate-vsdoc.js"></script>
+<script src="~/Scripts/jquery.unobtrusive-ajax.min.js"></script>
+<script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
+<script>
+    $(document).ready(function () {
+        $.ajax({
+            url: "/User/GetUserInfo",
+            type: "POST",
+            dataType: "Json",
+            data: { Uid: $("#uid").val() },
+            success: function (res) {
+                alert(uid);
+                $("#username").val(res.info.UserName);
+            }
+        })
+    })
+    $("#bcs").click(function () {
+        alert($("#uid").val());
+    })
+
+</script>

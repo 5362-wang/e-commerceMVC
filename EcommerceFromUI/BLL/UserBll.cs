@@ -46,5 +46,9 @@ namespace BLL
         {
             return ApiRequestHelper.Post<UserGetRequest, UserGetResponse>(userGetRequest);
         }
+        public UserGetResponse GetUserInfo(UserGetPerRequest userGetPerRequest)
+        {
+            return ApiRequestHelper.Post<UserGetPerRequest, UserGetResponse>(userGetPerRequest);
+        }
     }
 }

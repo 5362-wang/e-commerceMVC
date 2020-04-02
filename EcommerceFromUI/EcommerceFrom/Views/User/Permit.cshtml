@@ -18,7 +18,7 @@
         <table class="layui-table">
             <thead id="tr">
                 <tr>
-                    <th>用户名</th>
+                    <th >用户名</th>
                     <th>手机号</th>
                     <th>邮箱号</th>
                     <th>所属部门</th>
@@ -44,16 +44,19 @@
                                 '<th>'+item.UserName+'</th>'+
                                 '<th>'+item.Phone+'</th>'+
                                  '<th>'+item.Email+'</th>'+
-                                 '<th>'+item.DepartmentId+'</th>'+
+                                 '<th>'+item.DepartmentName+'</th>'+
                                '<th>'+item.UserType+'</th>'+
-                            '<th> <button type="button" class="layui-btn">编辑</button>'+
-                                '<button type="button" class="layui-btn">删除</button></th>' +
+                            '<th> <button type="button" onclick="compile('+item.Uid+')"  class="layui-btn">编辑</button>'+
+                                '<button type="button" onclick="Delete('+item.Uid+')"  class="layui-btn">删除</button></th>' +
                             '</tr>'
                          $("#tr").append(tr);    
                     })
                     }
                 })
             })
+            function compile(res) {
+                location.href= '/User/PersonalCenter/' + res;
+            }
         </script>
 
     </body>
