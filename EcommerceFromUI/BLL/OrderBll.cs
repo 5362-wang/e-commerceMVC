@@ -83,7 +83,16 @@ namespace BLL
         public OrderUpdateResponse UpdateOrderInfo(OrderUpdateRequest request)
         {
 
-            return ApiRequestHelper.Post<OrderUpdateRequest, OrderUpdateResponse>(request);
+            return ApiRequestHelper.Post<OrderUpdateRequest,OrderUpdateResponse>(request);
+        }
+
+        /// <summary>
+        /// 点击发货修改成为发货状态
+        /// </summary>
+        /// <returns></returns>
+        public OrderUpdateStausGoGoodsResponse UpdateStausGoGoods(OrderUpdateStausGoGoodsRequest request)
+        {
+            return ApiRequestHelper.Post<OrderUpdateStausGoGoodsRequest,OrderUpdateStausGoGoodsResponse>(request);
         }
     }
 }

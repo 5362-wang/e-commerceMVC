@@ -88,7 +88,7 @@
                                         var tr = "";
                                         $(res.QueryOrderInfo).each(function () {
                                             tr += "<tr>"
-                                                + "<td>" + "<img src='" + this.CommodityImg +"' style='width:100px;height:100px;'/>" + "</td>"
+                                                + "<td>" + "<img src='" + this.CommodityImg + "' style='width:100px;height:100px;'/>" + "</td>"
                                                 + "<td>" + this.OrderName + "</td>"
                                                 + "<td>" + this.TypeName + "</td>"
                                                 + "<td>" + this.OrderCount + "</td>"
@@ -97,7 +97,7 @@
                                                 + "<td>" + this.OrderTypeName + "</td>"
                                                 + "<td>" + this.Consignee + "</td>"
                                                 + "<td>" + this.ConsigneeTel + "</td>"
-                                                + "<td><a onclick='Go()'>发货</a></td>"
+                                                + "<td><a onclick='Go()'>发货</a>&nbsp;&nbsp;&nbsp;&nbsp;<a onclick='Del()'>删除订单</a></td>"
                                                 + "</tr>";
 
                                         })
@@ -131,10 +131,54 @@
                                                 + "<td>" + this.OrderTypeName + "</td>"
                                                 + "<td>" + this.Consignee + "</td>"
                                                 + "<td>" + this.ConsigneeTel + "</td>"
-                                                + "<td><a onclick='Go()'>发货</a></td>"
+                                                + "<td><a onclick='Go()'>发货</a>&nbsp;&nbsp;&nbsp;&nbsp;<a onclick='Del()'>删除订单</a></td>"
                                                 + "</tr>";
                                         })
                                         $("#body").html(tr);
+                                    }
+                                });
+                            }
+
+                            //发货
+                            function Go() {
+                                var Id = this.Id;
+                                $.ajax({
+                                    url: "/Order/UpdateStausGoGoodsMethod",
+                                    type: "POST",
+                                    dataType: "JSON",
+                                    data:
+                                    {
+                                        OrderId:Id,
+                                    },
+                                    success: function (res) {
+                                        if (res.IsAddSuccess>0) {
+                                            alert("发货成功");
+                                        } else {
+                                            alert("发货失败");
+                                            return;
+                                        }
+                                    }
+                                });
+                            }
+
+                            //删除订单
+                            function Del() {
+                                var Id = this.Id;
+                                $.ajax({
+                                    url: "/Order/DelOrderInfoMethod",
+                                    type: "POST",
+                                    dataType: "JSON",
+                                    data:
+                                    {
+                                        OrderId: Id,
+                                    },
+                                    success: function (res) {
+                                        if (res.IsAddSuccess > 0) {
+                                            alert("删除成功");
+                                        } else {
+                                            alert("删除失败");
+                                            return;
+                                        }
                                     }
                                 });
                             }
@@ -145,46 +189,6 @@
         </div>
     </section>
     <script src="~/Content/OrderLayUI/OrderLayUi/common/layui/layui.js"></script>
-    <script type="text/javascript">
-        layui.use(['jquery', 'layer', 'element', 'laypage'], function () {
-            window.jQuery = window.$ = layui.jquery;
-            window.layer = layui.layer;
-            var element = layui.element(),
-                laypage = layui.laypage;
-
-
-            laypage({
-                cont: 'page',
-                pages: 10 //总页数
-                ,
-                groups: 5 //连续显示分页数
-                ,
-                jump: function (obj, first) {
-                    //得到了当前页，用于向服务端请求对应数据
-                    var curr = obj.curr;
-                    if (!first) {
-                        //layer.msg('第 '+ obj.curr +' 页');
-                    }
-                }
-            });
-
-            laypage({
-                cont: 'page2',
-                pages: 10 //总页数
-                ,
-                groups: 5 //连续显示分页数
-                ,
-                jump: function (obj, first) {
-                    //得到了当前页，用于向服务端请求对应数据
-                    var curr = obj.curr;
-                    if (!first) {
-                        //layer.msg('第 '+ obj.curr +' 页');
-                    }
-                }
-            });
-        });
-    </script>
-
 </body>
 </html>
 

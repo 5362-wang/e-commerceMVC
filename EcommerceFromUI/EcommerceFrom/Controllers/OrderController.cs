@@ -128,5 +128,14 @@ namespace EcommerceFrom.Controllers
             var res = bll.UpdateOrderInfo(request);
             return Json(res);
         }
+        /// <summary>
+        /// 点击发货修改成为发货状态
+        /// </summary>
+        /// <returns></returns>
+        public JsonResult UpdateStausGoGoodsMethod(OrderUpdateStausGoGoodsRequest request)
+        {
+            var res = bll.UpdateStausGoGoods(request);
+            return Json(res);
+        }
     }
 }
