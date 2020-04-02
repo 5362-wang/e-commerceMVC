@@ -17,8 +17,8 @@ namespace EcommerceFrom.Controllers
         /// </summary>
         /// <returns></returns>
         public ActionResult Login()
-        {      
-            
+        {
+
             return View();
         }
         // GET: User
@@ -28,7 +28,7 @@ namespace EcommerceFrom.Controllers
         /// <returns></returns>
         public ActionResult AddUser()
         {
-           
+
             return View();
         }
         /// <summary>
@@ -45,6 +45,17 @@ namespace EcommerceFrom.Controllers
         /// <returns></returns>
         public ActionResult Permit()
         {
+            return View();
+        }
+        /// <summary>
+        /// 个人信息
+        /// </summary>
+        /// <returns></returns>
+        public ActionResult PersonalCenter()
+        {
+            var arr = Request.Url.ToString().Split('/');
+            var id = arr[arr.Length - 1];
+            Session["Uid"] = id;
             return View();
         }
         /// <summary>
@@ -78,7 +89,7 @@ namespace EcommerceFrom.Controllers
         public string Send(string JiShou, int Count)
         {
             string YZM = CreateBlendCode(Count);
-          
+
             //发件人地址
             MailAddress from = new MailAddress("wxk17625056013@163.com");
             MailMessage message = new MailMessage();
@@ -145,7 +156,7 @@ namespace EcommerceFrom.Controllers
         /// </summary>
         public JsonResult UserRegist(UserAddRequest userAddRequest)
         {
-           var res= bll.AddUser(userAddRequest);
+            var res = bll.AddUser(userAddRequest);
 
             //GET请求返回
             //return Json(res,JsonRequestBehavior.AllowGet);
@@ -162,7 +173,7 @@ namespace EcommerceFrom.Controllers
         {
             var res = bll.UserLogin(userLoginRequest);
             Session["DepartmentId"] = res.DepartmentId;
-            Session["Uid"] = res.Uid;
+            Session["Uid"] = res.DepartmentId;
             Session["UserName"] = res.UserName;
             Session["UserImg"] = res.UserImg;
             return Json(res);
@@ -186,6 +197,26 @@ namespace EcommerceFrom.Controllers
         {
             var res = bll.GetUser(userGetRequest);
             return Json(res);
+        }
+        /// <summary>
+        /// 编辑员工反填
+        /// </summary>
+        /// <param name="userGetRequest"></param>
+        /// <returns></returns>
+        public JsonResult GetUserInfo(UserGetPerRequest userGetPerRequest)
+        {
+            var id = Request["Uid"];
+            if (id == null)
+            {
+                return Json(new { Name = "没有数据" }, JsonRequestBehavior.AllowGet);
+            }
+            else
+            {
+                userGetPerRequest.Uid = Convert.ToInt32(id.ToString());
+                var res = bll.GetUserInfo(userGetPerRequest);
+                return Json(res);
+            }
+
         }
     }
 }
