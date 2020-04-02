@@ -1,61 +1,93 @@
 ﻿
 @{
-    ViewBag.Title = "CommodityPage";
+    //ViewBag.Title = "CommodityPage";
+    Layout = null;
 }
 
 <!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Layui</title>
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <link href="~/css/layui.css" rel="stylesheet" media="all" />
+    <!-- 注意：如果你直接复制所有代码到本地，上述css路径需要改成你本地的 -->
+</head>
+<body>
 
-<table>
-    <tr>
-        <td>商品名称:</td>
-        <td><input id="Text1" type="text" /></td>
-    </tr>
-    <tr>
-        <td>商品分类:</td>
-        <td>
-            <select id="Select1">
-                <option></option>
+    <div class="layui-form-item">
+        <label class="layui-form-label">商品名称</label>
+        <div class="layui-input-inline">
+            <input type="text" name="username" id="name" lay-verify="required" placeholder="请输入商品价格" autocomplete="off" class="layui-input">
+        </div>
+    </div>
+    <div class="layui-form-item">
+        <label class="layui-form-label">商品类别</label>
+        <div class="layui-input-inline">
+            <select id="Select1" class="layui-input">
+                <option>请选择分类</option>
             </select>
-        </td>
-    </tr>
-    <tr>
-        <td>商品图片:</td>
-        <td>
+        </div>
+    </div>
+    <div class="layui-form-item">
+        <label class="layui-form-label">添加图片</label>
+        <div class="layui-input-inline">
             <input id="File1" type="file" />
-        </td>
-    </tr>
-    <tr>
-        <td>商品价格:</td>
-        <td><input id="Text3" type="text" /></td>
-    </tr>
-    <tr>
-        <td>商品详情:</td>
-        <td><input id="Text4" type="text" /></td>
-    </tr>
-    <tr>
-        <td>上架状态:</td>
-        <td>
-            <input id="Radio1" type="radio" name="res" value="1" /> 上架
-            <input id="Radio2" type="radio" name="res" value="0" />  不上架
-        </td>
-    </tr>
-    <tr>
-        <td>商品销售量:</td>
-        <td><input id="Text5" type="text" /></td>
-    </tr>
-    <tr>
-        <td>商品库存:</td>
-        <td><input id="Text6" type="text" /></td>
-    </tr>
-</table>
-<input id="Button1" type="button" value="添加商品" onclick="CommAdd()" />
+        </div>
+    </div>
+    <div class="layui-form-item">
+        <label class="layui-form-label">商品价格</label>
+        <div class="layui-input-inline">
+            <input type="text" name="username" id="price" lay-verify="required" placeholder="请输入商品价格" autocomplete="off" class="layui-input">
+        </div>
+    </div>
 
+    <div class="layui-form-item">
+        <div class="layui-inline">
+            <label class="layui-form-label">商品详情</label>
+            <div class="layui-input-block">
+                <input type="text" name="date" id="date1" autocomplete="off" class="layui-input">
+            </div>
+        </div>
+    </div>
+    <div class="layui-form-item" pane="">
+        <label class="layui-form-label">上架状态</label>
+        <div class="layui-input-block">
+            <input type="radio" id="rad" name="sex" value="男" title="上架" checked=""> 上架
+            <input type="radio" name="sex" value="女" title="未上架">  未上架
+        </div>
+    </div>
+    <div class="layui-form-item">
+        <div class="layui-inline">
+            <label class="layui-form-label">商品销售量</label>
+            <div class="layui-input-block">
+                <input type="text" name="date" id="date2" autocomplete="off" class="layui-input">
+            </div>
+        </div>
+    </div>
+    <div class="layui-form-item">
+        <div class="layui-inline">
+            <label class="layui-form-label">商品库存</label>
+            <div class="layui-input-block">
+                <input type="text" name="date" id="date3" autocomplete="off" class="layui-input">
+            </div>
+        </div>
+    </div>
+    <div class="layui-form-item">
+        <button class="layui-btn" lay-submit="" lay-filter="demo2">添加商品</button>
+    </div>
+    <script src="~/Scripts/Comt/layui.js" charset="utf-8"></script>
+    <!-- 注意：如果你直接复制所有代码到本地，上述js路径需要改成你本地的 -->
+    <script src="~/Scripts/jquery-3.3.1.min.js"></script>
+    <script src="~/Scripts/jquery.validate-vsdoc.js"></script>
+    <script src="~/Scripts/jquery.unobtrusive-ajax.min.js"></script>
+    <script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
 
-<script src="~/Scripts/jquery-3.3.1.min.js"></script>
-<script src="~/Scripts/jquery.validate-vsdoc.js"></script>
-<script src="~/Scripts/jquery.unobtrusive-ajax.min.js"></script>
-<script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
+</html>
 
+</body>
 <script>
 
     //绑定  //绑定
@@ -75,34 +107,46 @@
     })
 
     function CommAdd() {
-        var info = {
-            CommodName: jQuery("#Text1").val(),
-            SystematicId: jQuery("#Select1").val(),
-            CommodityImg: jQuery("#File1").val(),
-            CommodityPrice: jQuery("#Text3").val(),
-            CommodityDetalis: jQuery("#Text4").val(),
-            RegisterDate: jQuery("input[name='res']:checked").val(),
-            PutNumber: jQuery("#Text4").val(),
-            CountNumber: jQuery("#Text6").val()
-        };
-
-        $.ajax({
-            url: "/Commodity/CommodityAddadd",
-            dataType: "json",
-            type: "Post",
-            data: info,
-            success: function (res) {
-                if (res > 0) {
-                    alert("添加成功");
-                    location.href = "/Commodity/CommodityPage";
+        var Img = new FormData(($("#File1")[0]));
+            $.ajax({
+                url: "/UpLoad.ashx",
+                type: "POST",
+                data: Img,
+                contentType: false,
+                processData: false,
+                success: function (data) {
+                    var info = {
+                        CommodName: $("#name").val(),
+                        SystematicId: $("#Select1").val(),
+                        CommodityImg: data,
+                        CommodityPrice: $("#price").val(),
+                        CommodityDetalis: $("#date1").val(),
+                        RegisterDate: $("#rad").val(),
+                        PutNumber: $("#date2").val(),
+                        CountNumber: $("$date3").val()
+                    };
+                    ajax({
+                        url: "/Commodity/CommodityAddadd",
+                        type: "POST",
+                        dataType: "Json",
+                        data: info,
+                        success: function (res) {
+                            if (res.CommoditySuccess == true) {
+                                alert("添加成功");
+                            }
+                            else {
+                                alert("添加失败");
+                            }
+                        }
+                    })
                 }
-                else {
-                    alert("添加失败");
-                }
-            }
         })
+
     }
 
 
 
+
 </script>
+
+

@@ -1,17 +1,20 @@
 ﻿
 @{
-    ViewBag.Title = "CommodityPage";
+    //ViewBag.Title = "CommodityPage";
+    Layout = null;
 }
 
 <!DOCTYPE html>
 
-<table>
-    <tr>
-        <td>选择颜色：</td>
-        <td><input id="Text1" type="text" /></td>
-    </tr>
-</table>
-<input id="Button1" type="button" onclick="col()" value="添加颜色" />
+<div class="layui-form-item">
+    <label class="layui-form-label">请输入商品颜色</label>
+    <div class="layui-input-inline">
+        <input type="text" name="username" id="Text1" lay-verify="required" placeholder="请输入商品颜色" autocomplete="off" class="layui-input">
+    </div>
+</div>
+<div class="layui-form-item">
+    <button class="layui-btn" onclick="col()" lay-submit="" lay-filter="demo2">添加商品</button>
+</div>
 
 
 <script src="~/Scripts/jquery-3.3.1.min.js"></script>

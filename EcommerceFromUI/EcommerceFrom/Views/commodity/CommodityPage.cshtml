@@ -1,6 +1,7 @@
 ﻿
 @{
-    ViewBag.Title = "CommodityPage";
+    //ViewBag.Title = "CommodityPage";
+    Layout = null;
 }
 
 <!DOCTYPE html>
@@ -28,7 +29,7 @@
                         <button class="btn btn-brand-ghost pill" onclick="window.location.href='http://localhost:45248/Commodity/CommodityColor'">添加商品颜色</button>
                         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
                         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                        <select class="btn btn-brand-ghost pill">
+                        <select class="btn btn-brand-ghost pill" id="Select1">
                             <option>衣服</option>
                             <option>裤子</option>
                             <option>包</option>
@@ -43,10 +44,10 @@
                                         <a href="#">
                                             <img src="~/img/1.jpg" alt="product thumbnail" class="img-responsive" />
                                         </a>
-                                        <div class="product-control-wrapper bottom-right" >
-                                        
-                                            <div class="wrapper-control-item" >
-                                              
+                                        <div class="product-control-wrapper bottom-right">
+
+                                            <div class="wrapper-control-item">
+
                                                 <a class="js-quick-view" href="#" type="button" data-toggle="modal" data-target="#quick-view-product">
                                                     <span class="lnr lnr-eye"></span>
                                                 </a>
@@ -558,7 +559,7 @@
                                             <p><a href="#">商品销售量：50</a></p>
                                             <p><a href="#">上架状态：上架</a></p>
                                             <p><a href="#">商品详情 ：非常好</a></p>
-                                            <input id="Button1" type="button" value="加入购物车"  class="btn btn-brand-ghost pill" />
+                                            <input id="Button1" type="button" value="加入购物车" class="btn btn-brand-ghost pill" />
                                         </div>
                                     </div>
                                 </div>
@@ -568,41 +569,41 @@
                 </div>
             </div>
 
-        <script src="~/Scripts/Comt/jquery.min.js"></script>
-        <script src="~/Scripts/Comt/bootstrap.min.js"></script>
-        <script src="~/Scripts/Comt/function-check-viewport.js"></script>
-        <script src="~/Scripts/Comt/slick.min.js"></script>
-        <script src="~/Scripts/Comt/select2.full.min.js"></script>>
-        <script src="~/Scripts/Comt/imagesloaded.pkgd.min.js"></script>
-        <script src="~/Scripts/Comt/jquery.mmenu.all.min.js"></script>
-        <script src="~/Scripts/Comt/rellax.min.js"></script>
-        <script src="~/Scripts/Comt/isotope.pkgd.min.js"></script>
-        <script src="~/Scripts/Comt/bootstrap-notify.min.js"></script>
-        <script src="~/Scripts/Comt/bootstrap-slider.js"></script>
-        <script src="~/Scripts/Comt/in-view.min.js"></script>
-        <script src="~/Scripts/Comt/countUp.js"></script>
-        <script src="~/Scripts/Comt/animsition.min.js"></script>
-        <script src="~/Scripts/Comt/global.js"></script>
-        <script src="~/Scripts/Comt/config-mm-menu.js"></script>
-        <script src="~/Scripts/Comt/config-carousel-product-quickview.js"></script>
-        <!-- Demo Only-->
-        <script src="~/Scripts/Comt/demo-add-to-cart.js"></script>
-        <script src="~/Scripts/Comt/layui.js"></script>
+            <script src="~/Scripts/Comt/jquery.min.js"></script>
+            <script src="~/Scripts/Comt/bootstrap.min.js"></script>
+            <script src="~/Scripts/Comt/function-check-viewport.js"></script>
+            <script src="~/Scripts/Comt/slick.min.js"></script>
+            <script src="~/Scripts/Comt/select2.full.min.js"></script>>
+            <script src="~/Scripts/Comt/imagesloaded.pkgd.min.js"></script>
+            <script src="~/Scripts/Comt/jquery.mmenu.all.min.js"></script>
+            <script src="~/Scripts/Comt/rellax.min.js"></script>
+            <script src="~/Scripts/Comt/isotope.pkgd.min.js"></script>
+            <script src="~/Scripts/Comt/bootstrap-notify.min.js"></script>
+            <script src="~/Scripts/Comt/bootstrap-slider.js"></script>
+            <script src="~/Scripts/Comt/in-view.min.js"></script>
+            <script src="~/Scripts/Comt/countUp.js"></script>
+            <script src="~/Scripts/Comt/animsition.min.js"></script>
+            <script src="~/Scripts/Comt/global.js"></script>
+            <script src="~/Scripts/Comt/config-mm-menu.js"></script>
+            <script src="~/Scripts/Comt/config-carousel-product-quickview.js"></script>
+            <!-- Demo Only-->
+            <script src="~/Scripts/Comt/demo-add-to-cart.js"></script>
+            <script src="~/Scripts/Comt/layui.js"></script>
 
-        <script src="~/Scripts/Comt/jquery.unobtrusive-ajax.min.js"></script>
+            <script src="~/Scripts/Comt/jquery.unobtrusive-ajax.min.js"></script>
     </body>
 </table>
 <script>
 
     //类型绑定
-    $().ready({
+    $().ready(function () {
         $.ajax({
             url: "/Commodity/CommodityBindType",
-            type: "post",
-            dataType: "json",
+            type: "POST",
+            dataType: "JSON",
             success: function (res) {
-                $(res).each(function () {
-                    var sp = "<option>" + this.TypeName + "</option>";
+                $(res.CommodityTypesSuccess).each(function () {
+                    var sp = "<option value=" + this.CtypeId + ">" + this.TypeName + "</option>";
                     $("#Select1").append(sp);
                 })
             }
@@ -610,33 +611,29 @@
     })
 
     //查询
-    function Toquery(page) {
+    function Inq() {
+        var name = $("#Text1").val();
         $.ajax({
+            url: "/Commodity/ComodityInquire",
             type: "POST",
-            url: '/Commodity/ComodityInquire',
-            data: { pageNum: 1, pageSize: 10 },
-            success: function (data) {
-                HideLoad('body');
-                $("#result").html(data);
-            },
-            error: function (xhr) {
-                HideLoad('body');
-                displayError(xhr);
+            dataType: "JSON",
+            data: name,
+            success: function (res) {
+                $(res).each(function () {
+                    var str = "<tr>"
+                        + "<td>" + this.CommodName + "</td>"
+                        + "<td>" + this.SystematicId + "</td>"
+                        + "<td>" + this.CommodityImg + "</td>"
+                        + "<td>" + this.CommodityPrice + "</td>"
+                        + "<td>" + this.CommodityDetalis + "</td>"
+                        + "<td>" + this.RegisterDate + "</td>"
+                        + "<td>" + this.PutNumber + "</td>"
+                        + "<td>" + this.CountNumber + "</td>"
+                        + "</tr>";
+                })
+                
             }
-        });
-        if (page = "add") {
-            var insert = $("#insert");
-            insert.css("display", "none");
-        }
-        if (page = "update") {
-            var modify = $("#modify")
-            modify.css("display", "none");
-        }
-        var query = $("#search");
-        query.css("display", "block");
-        var result = $("#result");
-        result.css("display", "block");
-
+        })
     }
 
 

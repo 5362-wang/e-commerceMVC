@@ -135,6 +135,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Content\action_upload.php" />
     <Content Include="Content\images\login\ldy.jpg" />
     <Content Include="Content\images\login\login_bg.jpg" />
     <Content Include="Content\LayUI\echarts.js" />
@@ -547,6 +548,7 @@
     <Content Include="Content\LayUI\lib\ueditor\ueditor.parse.js" />
     <Content Include="Content\LayUI\lib\ueditor\ueditor.parse.min.js" />
     <Content Include="Content\LayUI\login.css" />
+    <Content Include="css\layui.css" />
     <Content Include="css\main.css" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
