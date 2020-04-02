@@ -45,8 +45,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="ApiSDKClient">
-      <HintPath>..\..\..\克隆文件夹(1)\EcommerceApi\EcommerceApi\ApiSDKClient\bin\Debug\ApiSDKClient.dll</HintPath>
+    <Reference Include="ApiSDKClient, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\EcommerceApi\EcommerceApi\ApiSDKClient\bin\Debug\ApiSDKClient.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System" />
