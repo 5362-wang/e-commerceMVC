@@ -133,9 +133,11 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Uplod.ashx.cs">
+      <DependentUpon>Uplod.ashx</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Content\action_upload.php" />
     <Content Include="Content\images\login\ldy.jpg" />
     <Content Include="Content\images\login\login_bg.jpg" />
     <Content Include="Content\LayUI\echarts.js" />
@@ -548,8 +550,11 @@
     <Content Include="Content\LayUI\lib\ueditor\ueditor.parse.js" />
     <Content Include="Content\LayUI\lib\ueditor\ueditor.parse.min.js" />
     <Content Include="Content\LayUI\login.css" />
+    <Content Include="css\bootstrap.css" />
+    <Content Include="css\global.css" />
     <Content Include="css\layui.css" />
     <Content Include="css\main.css" />
+    <Content Include="css\personal.css" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
@@ -669,10 +674,13 @@
     <Content Include="Views\Commodity\CommodityColor.cshtml" />
     <Content Include="Views\Commodity\CommodityAdd.cshtml" />
     <Content Include="Views\Commodity\CommodityType.cshtml" />
+    <Content Include="Uplod.ashx" />
+    <Content Include="Views\Commodity\CommodityShows.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Models\" />
+    <Folder Include="Tupian\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />

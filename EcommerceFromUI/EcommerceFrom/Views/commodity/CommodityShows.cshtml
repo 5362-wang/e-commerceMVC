@@ -1,0 +1,123 @@
+﻿
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>个人信息</title>
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+
+    <link href="~/css/layui.css" rel="stylesheet" />
+    <link href="~/css/bootstrap.css" rel="stylesheet" />
+    <link href="~/css/global.css" rel="stylesheet" />
+    <link href="~/css/personal.css" rel="stylesheet" />
+
+</head>
+<body>
+    <section class="layui-larry-box">
+        <div class="larry-personal">
+            <div class="layui-tab">
+                <blockquote class="layui-elem-quote news_search">
+
+                    <div class="layui-inline">
+                        <div class="layui-input-inline">
+                            <input value="" placeholder="请输入商品关键字" class="layui-input search_input" type="text" id="SearchName">
+                        </div>
+                        <div style="float:right;margin-left:20px">
+                            <select style="height:38.5px;width:150px" id="xiala">
+                                <option value="0">请选择</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="layui-inline">
+                        <a class="layui-btn layui-btn-normal newsAdd_btn" onclick="Search()">查询</a>
+                    </div>
+                </blockquote>
+
+                <div class="layui-tab-content larry-personal-body clearfix mylog-info-box">
+                    <!-- 操作日志 -->
+                    <div class="layui-tab-item layui-field-box layui-show">
+                        <table class="layui-table table-hover" lay-even="" lay-skin="nob">
+                            <thead>
+                                <tr>
+                                    <td><input id="Checkbox1" type="checkbox" /></td>
+                                    <td>商品名称</td>
+                                    <td>商品类别</td>
+                                    <td>商品图片</td>
+                                    <td>商品价格</td>
+                                    <td>商品详情</td>
+                                    <td>上架状态</td>
+                                    <td>商品销售量</td>
+                                    <td>商品库存</td>
+                                </tr>
+                            </thead>
+                            <tbody id="body">
+                            </tbody>
+                        </table>
+                        <input id="Button1" type="button" value="加入购物车" />
+                        <script src="~/Scripts/jquery-3.3.1.min.js"></script>
+                        <script src="~/Scripts/jquery.validate-vsdoc.js"></script>
+                        <script src="~/Scripts/jquery.unobtrusive-ajax.min.js"></script>
+                        <script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
+                        <script>
+                            //绑定  //绑定
+                            $().ready(function () {
+                                $.ajax({
+                                    url: "/Commodity/CommodityBindType",
+                                    type: "POST",
+                                    dataType: "JSON",
+                                    success: function (res) {
+                                        var sp = "";
+                                        $(res.CommodityTypesSuccess).each(function () {
+                                            sp += "<option value=" + this.CtypeId + ">" + this.TypeName + "</option>";
+                                        })
+                                        $("#xiala").append(sp);
+                                    }
+                                })
+                            })
+                            //查询
+                            function Search() {
+                                
+                                $.ajax({
+                                    url: "/Commodity/CommodityShow",
+                                    type: "POST",
+                                    dataType: "JSON",
+                                    success: function (res) {
+                                        var tr = "";
+                                        $(res.CommodityInfoSuccess).each(function () {
+                                            tr += "<tr>"
+                                                + "<td>" + "<img src='" + this.CommodityImg + "' style='width:100px;height:100px;'/>" + "</td>"
+                                                + "<td>" + this.CommodName + "</td>"
+                                                + "<td>" + this.SystematicId + "</td>"
+                                                + "<td>" + this.CommodityImg + "</td>"
+                                                + "<td>" + this.CommodityPrice + "</td>"
+                                                + "<td>" + this.CommodityDetalis + "</td>"
+                                                + "<td>" + this.RegisterDate + "</td>"
+                                                + "<td>" + this.PutNumber + "</td>"
+                                                + "<td>" + this.CountNumber + "</td>"   
+                                                + "</tr>";
+                                        })
+                                        $("#body").html(tr);
+                                    }
+                                });
+                            }
+
+                        </script>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <script src="~/Scripts/Comt/layui.js"></script>
+</body>
+</html>
+
+
+
+
+
+

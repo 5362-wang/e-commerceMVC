@@ -1,7 +1,6 @@
 ﻿
 @{
-    //ViewBag.Title = "CommodityPage";
-    Layout = null;
+    ViewBag.Title = "CommodityPage";
 }
 
 <!DOCTYPE html>
@@ -20,21 +19,25 @@
     <div class="layui-form-item">
         <label class="layui-form-label">商品名称</label>
         <div class="layui-input-inline">
-            <input type="text" name="username" id="name" lay-verify="required" placeholder="请输入商品价格" autocomplete="off" class="layui-input">
+            <input type="text" name="username" id="name" lay-verify="required" placeholder="请输入商品名称" autocomplete="off" class="layui-input">
         </div>
     </div>
     <div class="layui-form-item">
         <label class="layui-form-label">商品类别</label>
         <div class="layui-input-inline">
-            <select id="Select1" class="layui-input">
-                <option>请选择分类</option>
-            </select>
+            <form action="/" method="post">
+                <select id="xiala" class="layui-input">
+                </select>
+            </form>
+            
         </div>
     </div>
     <div class="layui-form-item">
         <label class="layui-form-label">添加图片</label>
         <div class="layui-input-inline">
-            <input id="File1" type="file" />
+            <form id="fid" method="post">
+                <input id="img" type="file" />
+            </form>
         </div>
     </div>
     <div class="layui-form-item">
@@ -55,8 +58,8 @@
     <div class="layui-form-item" pane="">
         <label class="layui-form-label">上架状态</label>
         <div class="layui-input-block">
-            <input type="radio" id="rad" name="sex" value="男" title="上架" checked=""> 上架
-            <input type="radio" name="sex" value="女" title="未上架">  未上架
+            <input type="radio" name="sex" value="上" title="上架" checked=""> 上架
+            <input type="radio" name="sex" value="下" title="未上架">  未上架
         </div>
     </div>
     <div class="layui-form-item">
@@ -71,75 +74,79 @@
         <div class="layui-inline">
             <label class="layui-form-label">商品库存</label>
             <div class="layui-input-block">
-                <input type="text" name="date" id="date3" autocomplete="off" class="layui-input">
+                <input type="text" name="date" id="kucun" autocomplete="off" class="layui-input">
             </div>
         </div>
     </div>
-    <div class="layui-form-item">
-        <button class="layui-btn" lay-submit="" lay-filter="demo2">添加商品</button>
-    </div>
+    <input id="Button1" type="button" value="添加" class="layui-btn" lay-submit="" lay-filter="demo2" onclick="add()" />
+ 
+
     <script src="~/Scripts/Comt/layui.js" charset="utf-8"></script>
     <!-- 注意：如果你直接复制所有代码到本地，上述js路径需要改成你本地的 -->
-    <script src="~/Scripts/jquery-3.3.1.min.js"></script>
-    <script src="~/Scripts/jquery.validate-vsdoc.js"></script>
-    <script src="~/Scripts/jquery.unobtrusive-ajax.min.js"></script>
-    <script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
+
+
 
 </html>
-
-</body>
+<script src="~/Scripts/jquery-3.3.1.js"></script>
+<script src="~/Scripts/jquery.validate-vsdoc.js"></script>
+<script src="~/Scripts/jquery.unobtrusive-ajax.min.js"></script>
+<script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
 <script>
 
     //绑定  //绑定
     $().ready(function () {
-
         $.ajax({
             url: "/Commodity/CommodityBindType",
             type: "POST",
             dataType: "JSON",
             success: function (res) {
+                var sp = "";
                 $(res.CommodityTypesSuccess).each(function () {
-                    var sp = "<option value=" + this.CtypeId + ">" + this.TypeName + "</option>";
-                    $("#Select1").append(sp);
+                     sp += "<option value=" + this.CtypeId + ">" + this.TypeName + "</option>";
                 })
+                $("#xiala").append(sp);
             }
         })
     })
 
-    function CommAdd() {
-        var Img = new FormData(($("#File1")[0]));
-            $.ajax({
-                url: "/UpLoad.ashx",
-                type: "POST",
-                data: Img,
-                contentType: false,
-                processData: false,
-                success: function (data) {
-                    var info = {
-                        CommodName: $("#name").val(),
-                        SystematicId: $("#Select1").val(),
-                        CommodityImg: data,
-                        CommodityPrice: $("#price").val(),
-                        CommodityDetalis: $("#date1").val(),
-                        RegisterDate: $("#rad").val(),
-                        PutNumber: $("#date2").val(),
-                        CountNumber: $("$date3").val()
-                    };
-                    ajax({
-                        url: "/Commodity/CommodityAddadd",
-                        type: "POST",
-                        dataType: "Json",
-                        data: info,
-                        success: function (res) {
-                            if (res.CommoditySuccess == true) {
-                                alert("添加成功");
-                            }
-                            else {
-                                alert("添加失败");
-                            }
+    //添加商品
+    function add() {
+        var Img = new FormData(($("#fid")[0]));
+        $.ajax({
+            url: "/Uplod.ashx",
+            type: "POST",
+            data: Img,
+            contentType: false,
+            processData: false,
+            success: function (data) {
+                var info = {
+                    CommodName: $("#name").val(),
+                    SystematicId: $("#xiala").val(),
+                    CommodityImg: data,
+                    CommodityPrice: $("#price").val(),
+                    CommodityDetalis: $("#date1").val(),
+                    RegisterDate: $("input[name='sex']:checked").val(),
+                    PutNumber: $("#date2").val(),
+                    CountNumber: $("#kucun").val()
+                };
+                $.ajax({
+                    url: "/Commodity/CommodityAddadd",
+                    type: "POST",
+                    dataType: "Json",
+                    data: info,
+     
+                    success: function (res) {
+                        alert($("#xiala").val());
+                        if (res.CommoditySuccess == true) {
+                            alert("添加成功");
+                            
                         }
-                    })
-                }
+                        else {
+                            alert("添加失败");
+                        }
+                    }
+                })
+            }
         })
 
     }
@@ -148,5 +155,7 @@
 
 
 </script>
+</body>
+
 
 

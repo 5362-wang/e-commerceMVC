@@ -61,6 +61,21 @@ namespace EcommerceFrom.Controllers
         }
 
         /// <summary>
+        /// 显示商品
+        /// </summary>
+        /// <returns></returns>
+        public ActionResult CommodityShows()
+        {
+            return View();
+        }
+        public JsonResult CommodityShow(CommodityShowRequest request)
+        {
+            var res = bll.CommodityShow(request);
+            return Json(res);
+        }
+
+
+        /// <summary>
         /// 添加类别
         /// </summary>
         /// <returns></returns>
