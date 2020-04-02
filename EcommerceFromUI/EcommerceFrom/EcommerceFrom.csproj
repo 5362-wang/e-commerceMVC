@@ -141,6 +141,7 @@
   <ItemGroup>
     <Content Include="Content\images\login\ldy.jpg" />
     <Content Include="Content\images\login\login_bg.jpg" />
+    <Content Include="Content\images\login\logo.jpg" />
     <Content Include="Content\LayUI\echarts.js" />
     <Content Include="Content\LayUI\font\IMG\1.png" />
     <Content Include="Content\LayUI\font\IMG\2.png" />
@@ -798,6 +799,7 @@
     <Content Include="Views\Commodity\HomePage.cshtml" />
     <Content Include="Views\User\FindPwd.cshtml" />
     <Content Include="Views\User\Permit.cshtml" />
+    <Content Include="Views\User\PersonalCenter.cshtml" />
     <Content Include="Views\Order\ShowOrderInfo.cshtml" />
     <Content Include="Views\Order\AddOrderInfo.cshtml" />
     <Content Include="Views\Order\UpdateOrderInfo.cshtml" />
