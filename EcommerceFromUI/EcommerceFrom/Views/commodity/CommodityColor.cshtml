@@ -1,0 +1,48 @@
+﻿
+@{
+    ViewBag.Title = "CommodityPage";
+}
+
+<!DOCTYPE html>
+
+<div class="layui-form-item">
+    <label class="layui-form-label">请输入商品颜色</label>
+    <div class="layui-input-inline">
+        <input type="text" name="username" id="Text1" lay-verify="required" placeholder="请输入商品颜色" autocomplete="off" class="layui-input">
+    </div>
+</div>
+<div class="layui-form-item">
+    <button class="layui-btn" onclick="col()" lay-submit="" lay-filter="demo2">添加商品</button>
+</div>
+
+
+<script src="~/Scripts/jquery-3.3.1.min.js"></script>
+<script src="~/Scripts/jquery.validate-vsdoc.js"></script>
+<script src="~/Scripts/jquery.unobtrusive-ajax.min.js"></script>
+<script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
+<script>
+
+    function col() {
+        var info = {
+            Color: jQuery("#Text1").val(),
+        }
+        $.ajax({
+            url: "/Commodity/CommodityColorAdd",
+            type: "POST",
+            dataType: "JSON",
+            data: info,
+            success: function (res) {
+                if (res.ColorSuccess == true) {
+                    alert("添加成功");
+                }
+                else {
+                    alert("添加失败");
+                }
+            }
+        })
+    }
+
+
+
+
+</script>

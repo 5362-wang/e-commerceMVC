@@ -24,9 +24,9 @@ namespace BLL
         /// </summary>
         /// <param name="userAddRequest"></param>
         /// <returns></returns>
-        public UserLoginResponse UserLogin(UserLoginRequest userLoginResponse)
+        public UserLoginResponse UserLogin(UserLoginRequest userLoginRequest)
         {
-            return ApiRequestHelper.Post<UserLoginRequest, UserLoginResponse>(userLoginResponse);
+            return ApiRequestHelper.Post<UserLoginRequest, UserLoginResponse>(userLoginRequest);
         }
         /// <summary>
         /// 修改密码
