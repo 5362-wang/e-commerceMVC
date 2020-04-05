@@ -24,11 +24,13 @@ namespace EcommerceFrom.Controllers
         /// <returns></returns>
         public ActionResult CommodityPage()
         {
+
             return View();
         }
         public JsonResult CommodityPageShow(CommodityShowRequest request)
         {
             var res = bll.CommodityShow(request);
+
             return Json(res);
         }
 
@@ -66,11 +68,13 @@ namespace EcommerceFrom.Controllers
         /// <returns></returns>
         public ActionResult CommodityShows()
         {
+
             return View();
         }
         public JsonResult CommodityShow(CommodityShowRequest request)
         {
             var res = bll.CommodityShow(request);
+
             return Json(res);
         }
 
@@ -110,6 +114,53 @@ namespace EcommerceFrom.Controllers
             var res = bll.InquireCommodity(request);
             return Json(res);
         }
+
+        /// <summary>
+        /// 绑定颜色
+        /// </summary>
+        /// <returns></returns>
+        public JsonResult CommodityBindColor(CommColorShowRequest request)
+        {
+            var res = bll.ColorShow(request);
+            return Json(res);
+        }
+
+        /// <summary>
+        /// 修改上架状态
+        /// </summary>
+        /// <param name="request"></param>
+        /// <returns></returns>
+        public JsonResult CommodityUpt(CommodityUptRequest request)
+        {
+            var res = bll.CommodityUpt(request);
+            return Json(res);
+        }
+
+        /// <summary>
+        /// 编辑方法 
+        /// </summary>
+        /// <returns></returns>
+        public ActionResult UpdateComodity()
+        {
+            return View();
+        }
+        public JsonResult CommodityUpdate(CommodityUpdateReq request)
+        {
+            var res = bll.UpdateCommodityInfo(request);
+            return Json(res);
+        }
+        /// <summary>
+        /// 获取单条信息
+        /// </summary>
+        /// <param name="request"></param>
+        /// <returns></returns>
+        [HttpPost]
+        public JsonResult CommodityUpdateOne(CommodityUptReq request)
+        {
+            var res = bll.GetCommodityInfo(request);
+            return Json(res);
+        }
+
 
 
     }

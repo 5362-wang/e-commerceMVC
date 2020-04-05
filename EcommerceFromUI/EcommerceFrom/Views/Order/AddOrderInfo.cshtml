@@ -45,7 +45,7 @@
                         <form id="ImgForm" menthod="post">
                             <input type="file" name="file" id="tp">
                         </form>
-                        
+
                     </div>
                 </div>
                 <div class="layui-form-item">
@@ -182,20 +182,20 @@
                 success: function (data) {
                     var obj =
                     {
-                        BoughtTime : $("#sj").val(),
-                        OrderName : $("#mc").val(),
-                        CommodityImg : data,
-                        OrderSize : $("#selectgg").val(),
-                        OrderCount : $("#sl").val(),
-                        YhId : $("#selectyh").val(),
-                        OrderPrice : $("#jg").val(),
-                        OrderTypeId : $("#selecttypeid").val(),
-                        Consignee : $("#shr").val(),
-                        ConsigneeTel : $("#shrdh").val(),
-                        CreateId : $("#cjr").val(),
-                        UpdateId : $("#xgr").val(),
-                        CreateTime : $("#cjsj").val(),
-                        UpdateTime : $("#xgsj").val(),
+                        BoughtTime: $("#sj").val(),
+                        OrderName: $("#mc").val(),
+                        CommodityImg: data,
+                        OrderSize: $("#selectgg").val(),
+                        OrderCount: $("#sl").val(),
+                        YhId: $("#selectyh").val(),
+                        OrderPrice: $("#jg").val(),
+                        OrderTypeId: $("#selecttypeid").val(),
+                        Consignee: $("#shr").val(),
+                        ConsigneeTel: $("#shrdh").val(),
+                        CreateId: $("#cjr").val(),
+                        UpdateId: $("#xgr").val(),
+                        CreateTime: $("#cjsj").val(),
+                        UpdateTime: $("#xgsj").val(),
                     };
                     $.ajax({
                         url: "/Order/AddOrderInfoMethod",

@@ -1,7 +1,8 @@
 ﻿
 @{
     //ViewBag.Title = "CommodityPage";
-    Layout = null;
+    Layout=null;
+
 }
 
 <!DOCTYPE html>
@@ -29,438 +30,439 @@
                         <button class="btn btn-brand-ghost pill" onclick="window.location.href='http://localhost:45248/Commodity/CommodityColor'">添加商品颜色</button>
                         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
                         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                        <select class="btn btn-brand-ghost pill" id="Select1">
-                            <option>衣服</option>
-                            <option>裤子</option>
-                            <option>包</option>
-                            <option>运动服</option>
+                        <select class="btn btn-brand-ghost pill" id="xiala">
                         </select>
-                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
-                        <input id="Text1" class="btn btn-brand-ghost pill" type="text" />&nbsp;<button class="btn btn-brand-ghost pill" onclick="Inquire()">查询</button>
-                        <div class="row product-grid-equal-height-wrapper product-equal-height-4-columns flex multi-row">
-                            <figure class="item">
-                                <div class="product product-style-1">
-                                    <div class="img-wrapper">
-                                        <a href="#">
-                                            <img src="~/img/1.jpg" alt="product thumbnail" class="img-responsive" />
-                                        </a>
-                                        <div class="product-control-wrapper bottom-right">
+                        <table>
+                            <tr>
+                                <td>
+                                    <div class="row product-grid-equal-height-wrapper product-equal-height-4-columns flex multi-row">
+                                        <figure class="item">
+                                            <div class="product product-style-1">
+                                                <div class="img-wrapper">
+                                                    <a href="#">
+                                                        <img src="~/img/1.jpg" alt="product thumbnail" class="img-responsive" />
+                                                    </a>
+                                                    <div class="product-control-wrapper bottom-right">
 
-                                            <div class="wrapper-control-item">
+                                                        <div class="wrapper-control-item">
 
-                                                <a class="js-quick-view" href="#" type="button" data-toggle="modal" data-target="#quick-view-product">
-                                                    <span class="lnr lnr-eye"></span>
-                                                </a>
+                                                            <a class="js-quick-view" href="#" type="button" data-toggle="modal" data-target="#quick-view-product">
+                                                                <span class="lnr lnr-eye"></span>
+                                                            </a>
+                                                        </div>
+                                                        <div class="wrapper-control-item item-wish-list">
+                                                            <a class="js-wish-list js-notify-add-wish-list" href="#">
+                                                                <span class="lnr lnr-heart"></span>
+                                                            </a>
+                                                        </div>
+                                                        <div class="wrapper-control-item item-add-cart js-action-add-cart">
+                                                            <a class="animate-icon-cart" href="#">
+                                                                <span class="lnr lnr-cart"></span>
+                                                            </a>
+                                                            <svg x="0px" y="0px" width="30px" height="25px" viewbox="0 0 330 26">
+                                                                <path stroke-dasharray="19.79 19.79" fill="none" ,="," stroke-width="2" stroke-linecap="square" stroke-miterlimit="10" d="M9,17l3.9,3.9c0.1,0.1,0.2,0.1,0.3,0L23,11"></path>
+                                                            </svg>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <figcaption class="desc text-center">
+                                                    <h3>
+                                                        <a class="product-name" href="#" id="CommodName">运动服</a>
+                                                    </h3>
+                                                    <span class="price" id="CommodityPrice">$120</span>
+                                                </figcaption>
                                             </div>
-                                            <div class="wrapper-control-item item-wish-list">
-                                                <a class="js-wish-list js-notify-add-wish-list" href="#">
-                                                    <span class="lnr lnr-heart"></span>
-                                                </a>
+                                        </figure>
+                                        <figure class="item">
+                                            <div class="product product-style-1">
+                                                <div class="img-wrapper">
+                                                    <a href="#">
+                                                        <img src="~/img/2.jpg" alt="product thumbnail" class="img-responsive" id="CommodityImg" />
+                                                    </a>
+                                                    <div class="product-control-wrapper bottom-right">
+                                                        <div class="wrapper-control-item">
+                                                            <a class="js-quick-view" href="#" type="button" data-toggle="modal" data-target="#quick-view-product">
+                                                                <span class="lnr lnr-eye"></span>
+                                                            </a>
+                                                        </div>
+                                                        <div class="wrapper-control-item item-wish-list">
+                                                            <a class="js-wish-list js-notify-add-wish-list" href="#">
+                                                                <span class="lnr lnr-heart"></span>
+                                                            </a>
+                                                        </div>
+                                                        <div class="wrapper-control-item item-add-cart js-action-add-cart">
+                                                            <a class="animate-icon-cart" href="#">
+                                                                <span class="lnr lnr-cart"></span>
+                                                            </a>
+                                                            <svg x="0px" y="0px" width="36px" height="32px" viewbox="0 0 36 32">
+                                                                <path stroke-dasharray="19.79 19.79" fill="none" ,="," stroke-width="2" stroke-linecap="square" stroke-miterlimit="10" d="M9,17l3.9,3.9c0.1,0.1,0.2,0.1,0.3,0L23,11"></path>
+                                                            </svg>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <figcaption class="desc text-center">
+                                                    <h3>
+                                                        <a class="product-name" href="#" id="CommodName">卫衣</a>
+                                                    </h3>
+                                                    <span class="price" id="CommodityPrice">$3.20</span>
+                                                </figcaption>
                                             </div>
-                                            <div class="wrapper-control-item item-add-cart js-action-add-cart">
-                                                <a class="animate-icon-cart" href="#">
-                                                    <span class="lnr lnr-cart"></span>
-                                                </a>
-                                                <svg x="0px" y="0px" width="30px" height="25px" viewbox="0 0 330 26">
-                                                    <path stroke-dasharray="19.79 19.79" fill="none" ,="," stroke-width="2" stroke-linecap="square" stroke-miterlimit="10" d="M9,17l3.9,3.9c0.1,0.1,0.2,0.1,0.3,0L23,11"></path>
-                                                </svg>
+                                        </figure>
+                                        <figure class="item">
+                                            <div class="product product-style-1">
+                                                <div class="img-wrapper">
+                                                    <a href="#">
+                                                        <img src="~/img/7.jpg" alt="product thumbnail" class="img-responsive" />
+                                                    </a>
+                                                    <div class="product-control-wrapper bottom-right">
+                                                        <div class="wrapper-control-item">
+                                                            <a class="js-quick-view" href="#" type="button" data-toggle="modal" data-target="#quick-view-product">
+                                                                <span class="lnr lnr-eye"></span>
+                                                            </a>
+                                                        </div>
+                                                        <div class="wrapper-control-item item-wish-list">
+                                                            <a class="js-wish-list js-notify-add-wish-list" href="#">
+                                                                <span class="lnr lnr-heart"></span>
+                                                            </a>
+                                                        </div>
+                                                        <div class="wrapper-control-item item-add-cart js-action-add-cart">
+                                                            <a class="animate-icon-cart" href="#">
+                                                                <span class="lnr lnr-cart"></span>
+                                                            </a>
+                                                            <svg x="0px" y="0px" width="36px" height="32px" viewbox="0 0 36 32">
+                                                                <path stroke-dasharray="19.79 19.79" fill="none" ,="," stroke-width="2" stroke-linecap="square" stroke-miterlimit="10" d="M9,17l3.9,3.9c0.1,0.1,0.2,0.1,0.3,0L23,11"></path>
+                                                            </svg>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <figcaption class="desc text-center">
+                                                    <h3>
+                                                        <a class="product-name" href="#" id="CommodName">衣服</a>
+                                                    </h3>
+                                                    <span class="price" id="CommodityPrice">$3.50</span>
+                                                </figcaption>
                                             </div>
-                                        </div>
+                                        </figure>
+                                        <figure class="item">
+                                            <div class="product product-style-1">
+                                                <div class="img-wrapper">
+                                                    <a href="#">
+                                                        <img src="~/img/5.jpg" alt="product thumbnail" class="img-responsive" id="CommodityImg" />
+                                                    </a>
+                                                    <div class="product-control-wrapper bottom-right">
+                                                        <div class="wrapper-control-item">
+                                                            <a class="js-quick-view" href="#" type="button" data-toggle="modal" data-target="#quick-view-product">
+                                                                <span class="lnr lnr-eye"></span>
+                                                            </a>
+                                                        </div>
+                                                        <div class="wrapper-control-item item-wish-list">
+                                                            <a class="js-wish-list js-notify-add-wish-list" href="#">
+                                                                <span class="lnr lnr-heart"></span>
+                                                            </a>
+                                                        </div>
+                                                        <div class="wrapper-control-item item-add-cart js-action-add-cart">
+                                                            <a class="animate-icon-cart" href="#">
+                                                                <span class="lnr lnr-cart"></span>
+                                                            </a>
+                                                            <svg x="0px" y="0px" width="36px" height="32px" viewbox="0 0 36 32">
+                                                                <path stroke-dasharray="19.79 19.79" fill="none" ,="," stroke-width="2" stroke-linecap="square" stroke-miterlimit="10" d="M9,17l3.9,3.9c0.1,0.1,0.2,0.1,0.3,0L23,11"></path>
+                                                            </svg>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <figcaption class="desc text-center">
+                                                    <h3>
+                                                        <a class="product-name" href="#" id="CommodName">包</a>
+                                                    </h3>
+                                                    <span class="price" id="CommodityPrice">$1.08</span>
+                                                </figcaption>
+                                            </div>
+                                        </figure>
+                                        <figure class="item">
+                                            <div class="product product-style-1">
+                                                <div class="img-wrapper">
+                                                    <a href="#">
+                                                        <img src="~/img/6.jpg" alt="product thumbnail" class="img-responsive" id="CommodityImg" />
+                                                    </a>
+                                                    <div class="product-control-wrapper bottom-right">
+                                                        <div class="wrapper-control-item">
+                                                            <a class="js-quick-view" href="#" type="button" data-toggle="modal" data-target="#quick-view-product">
+                                                                <span class="lnr lnr-eye"></span>
+                                                            </a>
+                                                        </div>
+                                                        <div class="wrapper-control-item item-wish-list">
+                                                            <a class="js-wish-list js-notify-add-wish-list" href="#">
+                                                                <span class="lnr lnr-heart"></span>
+                                                            </a>
+                                                        </div>
+                                                        <div class="wrapper-control-item item-add-cart js-action-add-cart">
+                                                            <a class="animate-icon-cart" href="#">
+                                                                <span class="lnr lnr-cart"></span>
+                                                            </a>
+                                                            <svg x="0px" y="0px" width="36px" height="32px" viewbox="0 0 36 32">
+                                                                <path stroke-dasharray="19.79 19.79" fill="none" ,="," stroke-width="2" stroke-linecap="square" stroke-miterlimit="10" d="M9,17l3.9,3.9c0.1,0.1,0.2,0.1,0.3,0L23,11"></path>
+                                                            </svg>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <figcaption class="desc text-center">
+                                                    <h3>
+                                                        <a class="product-name" href="#" id="CommodName">连衣裙</a>
+                                                    </h3>
+                                                    <span class="price" id="CommodityPrice">$2.26</span>
+                                                </figcaption>
+                                            </div>
+                                        </figure>
+                                        <figure class="item">
+                                            <div class="product product-style-1">
+                                                <div class="img-wrapper">
+                                                    <a href="#">
+                                                        <img src="~/img/17.jpg" alt="product thumbnail" class="img-responsive" id="CommodityImg" />
+                                                    </a>
+                                                    <div class="product-control-wrapper bottom-right">
+                                                        <div class="wrapper-control-item">
+                                                            <a class="js-quick-view" href="#" type="button" data-toggle="modal" data-target="#quick-view-product">
+                                                                <span class="lnr lnr-eye"></span>
+                                                            </a>
+                                                        </div>
+                                                        <div class="wrapper-control-item item-wish-list">
+                                                            <a class="js-wish-list js-notify-add-wish-list" href="#">
+                                                                <span class="lnr lnr-heart"></span>
+                                                            </a>
+                                                        </div>
+                                                        <div class="wrapper-control-item item-add-cart js-action-add-cart">
+                                                            <a class="animate-icon-cart" href="#">
+                                                                <span class="lnr lnr-cart"></span>
+                                                            </a>
+                                                            <svg x="0px" y="0px" width="36px" height="32px" viewbox="0 0 36 32">
+                                                                <path stroke-dasharray="19.79 19.79" fill="none" ,="," stroke-width="2" stroke-linecap="square" stroke-miterlimit="10" d="M9,17l3.9,3.9c0.1,0.1,0.2,0.1,0.3,0L23,11"></path>
+                                                            </svg>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <figcaption class="desc text-center">
+                                                    <h3>
+                                                        <a class="product-name" href="#" id="CommodName">单肩包</a>
+                                                    </h3>
+                                                    <span class="price" id="CommodityPrice">$4.05</span>
+                                                </figcaption>
+                                            </div>
+                                        </figure>
+                                        <figure class="item">
+                                            <div class="product product-style-1">
+                                                <div class="img-wrapper">
+                                                    <a href="#">
+                                                        <img src="~/img/18.jpg" alt="product thumbnail" class="img-responsive" />
+                                                    </a>
+                                                    <div class="product-control-wrapper bottom-right">
+                                                        <div class="wrapper-control-item">
+                                                            <a class="js-quick-view" href="#" type="button" data-toggle="modal" data-target="#quick-view-product">
+                                                                <span class="lnr lnr-eye"></span>
+                                                            </a>
+                                                        </div>
+                                                        <div class="wrapper-control-item item-wish-list">
+                                                            <a class="js-wish-list js-notify-add-wish-list" href="#">
+                                                                <span class="lnr lnr-heart"></span>
+                                                            </a>
+                                                        </div>
+                                                        <div class="wrapper-control-item item-add-cart js-action-add-cart">
+                                                            <a class="animate-icon-cart" href="#">
+                                                                <span class="lnr lnr-cart"></span>
+                                                            </a>
+                                                            <svg x="0px" y="0px" width="36px" height="32px" viewbox="0 0 36 32">
+                                                                <path stroke-dasharray="19.79 19.79" fill="none" ,="," stroke-width="2" stroke-linecap="square" stroke-miterlimit="10" d="M9,17l3.9,3.9c0.1,0.1,0.2,0.1,0.3,0L23,11"></path>
+                                                            </svg>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <figcaption class="desc text-center">
+                                                    <h3>
+                                                        <a class="product-name" href="#" id="CommodName">衬衫</a>
+                                                    </h3>
+                                                    <span class="price" id="CommodityPrice">$3.88</span>
+                                                </figcaption>
+                                            </div>
+                                        </figure>
+                                        <figure class="item">
+                                            <div class="product product-style-1">
+                                                <div class="img-wrapper">
+                                                    <a href="#">
+                                                        <img src="~/img/11.jpg" alt="product thumbnail" class="img-responsive" id="CommodityImg" />
+                                                    </a>
+                                                    <div class="product-control-wrapper bottom-right">
+                                                        <div class="wrapper-control-item">
+                                                            <a class="js-quick-view" href="#" type="button" data-toggle="modal" data-target="#quick-view-product">
+                                                                <span class="lnr lnr-eye"></span>
+                                                            </a>
+                                                        </div>
+                                                        <div class="wrapper-control-item item-wish-list">
+                                                            <a class="js-wish-list js-notify-add-wish-list" href="#">
+                                                                <span class="lnr lnr-heart"></span>
+                                                            </a>
+                                                        </div>
+                                                        <div class="wrapper-control-item item-add-cart js-action-add-cart">
+                                                            <a class="animate-icon-cart" href="#">
+                                                                <span class="lnr lnr-cart"></span>
+                                                            </a>
+                                                            <svg x="0px" y="0px" width="36px" height="32px" viewbox="0 0 36 32">
+                                                                <path stroke-dasharray="19.79 19.79" fill="none" ,="," stroke-width="2" stroke-linecap="square" stroke-miterlimit="10" d="M9,17l3.9,3.9c0.1,0.1,0.2,0.1,0.3,0L23,11"></path>
+                                                            </svg>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <figcaption class="desc text-center">
+                                                    <h3>
+                                                        <a class="product-name" href="#" id="CommodName">背心</a>
+                                                    </h3>
+                                                    <span class="price" id="CommodityPrice">$1.55</span>
+                                                </figcaption>
+                                            </div>
+                                        </figure>
+                                        <figure class="item">
+                                            <div class="product product-style-1">
+                                                <div class="img-wrapper">
+                                                    <a href="#">
+                                                        <img src="~/img/10.jpg" alt="product thumbnail" class="img-responsive" id="CommodityImg" />
+                                                    </a>
+                                                    <div class="product-control-wrapper bottom-right">
+                                                        <div class="wrapper-control-item">
+                                                            <a class="js-quick-view" href="#" type="button" data-toggle="modal" data-target="#quick-view-product">
+                                                                <span class="lnr lnr-eye"></span>
+                                                            </a>
+                                                        </div>
+                                                        <div class="wrapper-control-item item-wish-list">
+                                                            <a class="js-wish-list js-notify-add-wish-list" href="#">
+                                                                <span class="lnr lnr-heart"></span>
+                                                            </a>
+                                                        </div>
+                                                        <div class="wrapper-control-item item-add-cart js-action-add-cart">
+                                                            <a class="animate-icon-cart" href="#">
+                                                                <span class="lnr lnr-cart"></span>
+                                                            </a>
+                                                            <svg x="0px" y="0px" width="36px" height="32px" viewbox="0 0 36 32">
+                                                                <path stroke-dasharray="19.79 19.79" fill="none" ,="," stroke-width="2" stroke-linecap="square" stroke-miterlimit="10" d="M9,17l3.9,3.9c0.1,0.1,0.2,0.1,0.3,0L23,11"></path>
+                                                            </svg>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <figcaption class="desc text-center">
+                                                    <h3>
+                                                        <a class="product-name" href="#" id="CommodName">夹克</a>
+                                                    </h3>
+                                                    <span class="price" id="CommodityPrice">$4.80</span>
+                                                </figcaption>
+                                            </div>
+                                        </figure>
+                                        <figure class="item">
+                                            <div class="product product-style-1">
+                                                <div class="img-wrapper">
+                                                    <a href="#">
+                                                        <img src="~/img/1.jpg" alt="product thumbnail" class="img-responsive" id="CommodityImg" />
+                                                    </a>
+                                                    <div class="product-control-wrapper bottom-right">
+                                                        <div class="wrapper-control-item">
+                                                            <a class="js-quick-view" href="#" type="button" data-toggle="modal" data-target="#quick-view-product">
+                                                                <span class="lnr lnr-eye"></span>
+                                                            </a>
+                                                        </div>
+                                                        <div class="wrapper-control-item item-wish-list">
+                                                            <a class="js-wish-list js-notify-add-wish-list" href="#">
+                                                                <span class="lnr lnr-heart"></span>
+                                                            </a>
+                                                        </div>
+                                                        <div class="wrapper-control-item item-add-cart js-action-add-cart">
+                                                            <a class="animate-icon-cart" href="#">
+                                                                <span class="lnr lnr-cart"></span>
+                                                            </a>
+                                                            <svg x="0px" y="0px" width="36px" height="32px" viewbox="0 0 36 32">
+                                                                <path stroke-dasharray="19.79 19.79" fill="none" ,="," stroke-width="2" stroke-linecap="square" stroke-miterlimit="10" d="M9,17l3.9,3.9c0.1,0.1,0.2,0.1,0.3,0L23,11"></path>
+                                                            </svg>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <figcaption class="desc text-center">
+                                                    <h3>
+                                                        <a class="product-name" href="#" id="CommodName">衣服</a>
+                                                    </h3>
+                                                    <span class="price" id="CommodityPrice">$2.32</span>
+                                                </figcaption>
+                                            </div>
+                                        </figure>
+                                        <figure class="item">
+                                            <div class="product product-style-1">
+                                                <div class="img-wrapper">
+                                                    <a href="#">
+                                                        <img src="~/img/2.jpg" alt="product thumbnail" class="img-responsive" id="CommodityImg" />
+                                                    </a>
+                                                    <div class="product-control-wrapper bottom-right">
+                                                        <div class="wrapper-control-item">
+                                                            <a class="js-quick-view" href="#" type="button" data-toggle="modal" data-target="#quick-view-product">
+                                                                <span class="lnr lnr-eye"></span>
+                                                            </a>
+                                                        </div>
+                                                        <div class="wrapper-control-item item-wish-list">
+                                                            <a class="js-wish-list js-notify-add-wish-list" href="#">
+                                                                <span class="lnr lnr-heart"></span>
+                                                            </a>
+                                                        </div>
+                                                        <div class="wrapper-control-item item-add-cart js-action-add-cart">
+                                                            <a class="animate-icon-cart" href="#">
+                                                                <span class="lnr lnr-cart"></span>
+                                                            </a>
+                                                            <svg x="0px" y="0px" width="36px" height="32px" viewbox="0 0 36 32">
+                                                                <path stroke-dasharray="19.79 19.79" fill="none" ,="," stroke-width="2" stroke-linecap="square" stroke-miterlimit="10" d="M9,17l3.9,3.9c0.1,0.1,0.2,0.1,0.3,0L23,11"></path>
+                                                            </svg>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <figcaption class="desc text-center">
+                                                    <h3>
+                                                        <a class="product-name" href="#" id="CommodName">夹克</a>
+                                                    </h3>
+                                                    <span class="price" id="CommodityPrice">$5.20</span>
+                                                </figcaption>
+                                            </div>
+                                        </figure>
+                                        <figure class="item">
+                                            <div class="product product-style-1">
+                                                <div class="img-wrapper">
+                                                    <a href="#">
+                                                        <img src="~/img/13.jpg" alt="product thumbnail" class="img-responsive" id="CommodityImg" />
+                                                    </a>
+                                                    <div class="product-control-wrapper bottom-right">
+                                                        <div class="wrapper-control-item">
+                                                            <a class="js-quick-view" href="#" type="button" data-toggle="modal" data-target="#quick-view-product">
+                                                                <span class="lnr lnr-eye"></span>
+                                                            </a>
+                                                        </div>
+                                                        <div class="wrapper-control-item item-wish-list">
+                                                            <a class="js-wish-list js-notify-add-wish-list" href="#">
+                                                                <span class="lnr lnr-heart"></span>
+                                                            </a>
+                                                        </div>
+                                                        <div class="wrapper-control-item item-add-cart js-action-add-cart">
+                                                            <a class="animate-icon-cart" href="#">
+                                                                <span class="lnr lnr-cart"></span>
+                                                            </a>
+                                                            <svg x="0px" y="0px" width="36px" height="32px" viewbox="0 0 36 32">
+                                                                <path stroke-dasharray="19.79 19.79" fill="none" ,="," stroke-width="2" stroke-linecap="square" stroke-miterlimit="10" d="M9,17l3.9,3.9c0.1,0.1,0.2,0.1,0.3,0L23,11"></path>
+                                                            </svg>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <figcaption class="desc text-center">
+                                                    <h3>
+                                                        <a class="product-name" href="#" id="CommodName">衣服</a>
+                                                    </h3>
+                                                    <span class="price" id="CommodityPrice">$3.45</span>
+                                                </figcaption>
+                                            </div>
+                                        </figure>
                                     </div>
-                                    <figcaption class="desc text-center">
-                                        <h3>
-                                            <a class="product-name" href="#" id="CommodName">运动服</a>
-                                        </h3>
-                                        <span class="price" id="CommodityPrice">$120</span>
-                                    </figcaption>
-                                </div>
-                            </figure>
-                            <figure class="item">
-                                <div class="product product-style-1">
-                                    <div class="img-wrapper">
-                                        <a href="#">
-                                            <img src="~/img/2.jpg" alt="product thumbnail" class="img-responsive" id="CommodityImg" />
-                                        </a>
-                                        <div class="product-control-wrapper bottom-right">
-                                            <div class="wrapper-control-item">
-                                                <a class="js-quick-view" href="#" type="button" data-toggle="modal" data-target="#quick-view-product">
-                                                    <span class="lnr lnr-eye"></span>
-                                                </a>
-                                            </div>
-                                            <div class="wrapper-control-item item-wish-list">
-                                                <a class="js-wish-list js-notify-add-wish-list" href="#">
-                                                    <span class="lnr lnr-heart"></span>
-                                                </a>
-                                            </div>
-                                            <div class="wrapper-control-item item-add-cart js-action-add-cart">
-                                                <a class="animate-icon-cart" href="#">
-                                                    <span class="lnr lnr-cart"></span>
-                                                </a>
-                                                <svg x="0px" y="0px" width="36px" height="32px" viewbox="0 0 36 32">
-                                                    <path stroke-dasharray="19.79 19.79" fill="none" ,="," stroke-width="2" stroke-linecap="square" stroke-miterlimit="10" d="M9,17l3.9,3.9c0.1,0.1,0.2,0.1,0.3,0L23,11"></path>
-                                                </svg>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <figcaption class="desc text-center">
-                                        <h3>
-                                            <a class="product-name" href="#" id="CommodName">卫衣</a>
-                                        </h3>
-                                        <span class="price" id="CommodityPrice">$3.20</span>
-                                    </figcaption>
-                                </div>
-                            </figure>
-                            <figure class="item">
-                                <div class="product product-style-1">
-                                    <div class="img-wrapper">
-                                        <a href="#">
-                                            <img src="~/img/7.jpg" alt="product thumbnail" class="img-responsive" />
-                                        </a>
-                                        <div class="product-control-wrapper bottom-right">
-                                            <div class="wrapper-control-item">
-                                                <a class="js-quick-view" href="#" type="button" data-toggle="modal" data-target="#quick-view-product">
-                                                    <span class="lnr lnr-eye"></span>
-                                                </a>
-                                            </div>
-                                            <div class="wrapper-control-item item-wish-list">
-                                                <a class="js-wish-list js-notify-add-wish-list" href="#">
-                                                    <span class="lnr lnr-heart"></span>
-                                                </a>
-                                            </div>
-                                            <div class="wrapper-control-item item-add-cart js-action-add-cart">
-                                                <a class="animate-icon-cart" href="#">
-                                                    <span class="lnr lnr-cart"></span>
-                                                </a>
-                                                <svg x="0px" y="0px" width="36px" height="32px" viewbox="0 0 36 32">
-                                                    <path stroke-dasharray="19.79 19.79" fill="none" ,="," stroke-width="2" stroke-linecap="square" stroke-miterlimit="10" d="M9,17l3.9,3.9c0.1,0.1,0.2,0.1,0.3,0L23,11"></path>
-                                                </svg>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <figcaption class="desc text-center">
-                                        <h3>
-                                            <a class="product-name" href="#" id="CommodName">衣服</a>
-                                        </h3>
-                                        <span class="price" id="CommodityPrice">$3.50</span>
-                                    </figcaption>
-                                </div>
-                            </figure>
-                            <figure class="item">
-                                <div class="product product-style-1">
-                                    <div class="img-wrapper">
-                                        <a href="#">
-                                            <img src="~/img/5.jpg" alt="product thumbnail" class="img-responsive" id="CommodityImg" />
-                                        </a>
-                                        <div class="product-control-wrapper bottom-right">
-                                            <div class="wrapper-control-item">
-                                                <a class="js-quick-view" href="#" type="button" data-toggle="modal" data-target="#quick-view-product">
-                                                    <span class="lnr lnr-eye"></span>
-                                                </a>
-                                            </div>
-                                            <div class="wrapper-control-item item-wish-list">
-                                                <a class="js-wish-list js-notify-add-wish-list" href="#">
-                                                    <span class="lnr lnr-heart"></span>
-                                                </a>
-                                            </div>
-                                            <div class="wrapper-control-item item-add-cart js-action-add-cart">
-                                                <a class="animate-icon-cart" href="#">
-                                                    <span class="lnr lnr-cart"></span>
-                                                </a>
-                                                <svg x="0px" y="0px" width="36px" height="32px" viewbox="0 0 36 32">
-                                                    <path stroke-dasharray="19.79 19.79" fill="none" ,="," stroke-width="2" stroke-linecap="square" stroke-miterlimit="10" d="M9,17l3.9,3.9c0.1,0.1,0.2,0.1,0.3,0L23,11"></path>
-                                                </svg>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <figcaption class="desc text-center">
-                                        <h3>
-                                            <a class="product-name" href="#" id="CommodName">包</a>
-                                        </h3>
-                                        <span class="price" id="CommodityPrice">$1.08</span>
-                                    </figcaption>
-                                </div>
-                            </figure>
-                            <figure class="item">
-                                <div class="product product-style-1">
-                                    <div class="img-wrapper">
-                                        <a href="#">
-                                            <img src="~/img/6.jpg" alt="product thumbnail" class="img-responsive" id="CommodityImg" />
-                                        </a>
-                                        <div class="product-control-wrapper bottom-right">
-                                            <div class="wrapper-control-item">
-                                                <a class="js-quick-view" href="#" type="button" data-toggle="modal" data-target="#quick-view-product">
-                                                    <span class="lnr lnr-eye"></span>
-                                                </a>
-                                            </div>
-                                            <div class="wrapper-control-item item-wish-list">
-                                                <a class="js-wish-list js-notify-add-wish-list" href="#">
-                                                    <span class="lnr lnr-heart"></span>
-                                                </a>
-                                            </div>
-                                            <div class="wrapper-control-item item-add-cart js-action-add-cart">
-                                                <a class="animate-icon-cart" href="#">
-                                                    <span class="lnr lnr-cart"></span>
-                                                </a>
-                                                <svg x="0px" y="0px" width="36px" height="32px" viewbox="0 0 36 32">
-                                                    <path stroke-dasharray="19.79 19.79" fill="none" ,="," stroke-width="2" stroke-linecap="square" stroke-miterlimit="10" d="M9,17l3.9,3.9c0.1,0.1,0.2,0.1,0.3,0L23,11"></path>
-                                                </svg>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <figcaption class="desc text-center">
-                                        <h3>
-                                            <a class="product-name" href="#" id="CommodName">连衣裙</a>
-                                        </h3>
-                                        <span class="price" id="CommodityPrice">$2.26</span>
-                                    </figcaption>
-                                </div>
-                            </figure>
-                            <figure class="item">
-                                <div class="product product-style-1">
-                                    <div class="img-wrapper">
-                                        <a href="#">
-                                            <img src="~/img/17.jpg" alt="product thumbnail" class="img-responsive" id="CommodityImg" />
-                                        </a>
-                                        <div class="product-control-wrapper bottom-right">
-                                            <div class="wrapper-control-item">
-                                                <a class="js-quick-view" href="#" type="button" data-toggle="modal" data-target="#quick-view-product">
-                                                    <span class="lnr lnr-eye"></span>
-                                                </a>
-                                            </div>
-                                            <div class="wrapper-control-item item-wish-list">
-                                                <a class="js-wish-list js-notify-add-wish-list" href="#">
-                                                    <span class="lnr lnr-heart"></span>
-                                                </a>
-                                            </div>
-                                            <div class="wrapper-control-item item-add-cart js-action-add-cart">
-                                                <a class="animate-icon-cart" href="#">
-                                                    <span class="lnr lnr-cart"></span>
-                                                </a>
-                                                <svg x="0px" y="0px" width="36px" height="32px" viewbox="0 0 36 32">
-                                                    <path stroke-dasharray="19.79 19.79" fill="none" ,="," stroke-width="2" stroke-linecap="square" stroke-miterlimit="10" d="M9,17l3.9,3.9c0.1,0.1,0.2,0.1,0.3,0L23,11"></path>
-                                                </svg>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <figcaption class="desc text-center">
-                                        <h3>
-                                            <a class="product-name" href="#" id="CommodName">单肩包</a>
-                                        </h3>
-                                        <span class="price" id="CommodityPrice">$4.05</span>
-                                    </figcaption>
-                                </div>
-                            </figure>
-                            <figure class="item">
-                                <div class="product product-style-1">
-                                    <div class="img-wrapper">
-                                        <a href="#">
-                                            <img src="~/img/18.jpg" alt="product thumbnail" class="img-responsive" />
-                                        </a>
-                                        <div class="product-control-wrapper bottom-right">
-                                            <div class="wrapper-control-item">
-                                                <a class="js-quick-view" href="#" type="button" data-toggle="modal" data-target="#quick-view-product">
-                                                    <span class="lnr lnr-eye"></span>
-                                                </a>
-                                            </div>
-                                            <div class="wrapper-control-item item-wish-list">
-                                                <a class="js-wish-list js-notify-add-wish-list" href="#">
-                                                    <span class="lnr lnr-heart"></span>
-                                                </a>
-                                            </div>
-                                            <div class="wrapper-control-item item-add-cart js-action-add-cart">
-                                                <a class="animate-icon-cart" href="#">
-                                                    <span class="lnr lnr-cart"></span>
-                                                </a>
-                                                <svg x="0px" y="0px" width="36px" height="32px" viewbox="0 0 36 32">
-                                                    <path stroke-dasharray="19.79 19.79" fill="none" ,="," stroke-width="2" stroke-linecap="square" stroke-miterlimit="10" d="M9,17l3.9,3.9c0.1,0.1,0.2,0.1,0.3,0L23,11"></path>
-                                                </svg>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <figcaption class="desc text-center">
-                                        <h3>
-                                            <a class="product-name" href="#" id="CommodName">衬衫</a>
-                                        </h3>
-                                        <span class="price" id="CommodityPrice">$3.88</span>
-                                    </figcaption>
-                                </div>
-                            </figure>
-                            <figure class="item">
-                                <div class="product product-style-1">
-                                    <div class="img-wrapper">
-                                        <a href="#">
-                                            <img src="~/img/11.jpg" alt="product thumbnail" class="img-responsive" id="CommodityImg" />
-                                        </a>
-                                        <div class="product-control-wrapper bottom-right">
-                                            <div class="wrapper-control-item">
-                                                <a class="js-quick-view" href="#" type="button" data-toggle="modal" data-target="#quick-view-product">
-                                                    <span class="lnr lnr-eye"></span>
-                                                </a>
-                                            </div>
-                                            <div class="wrapper-control-item item-wish-list">
-                                                <a class="js-wish-list js-notify-add-wish-list" href="#">
-                                                    <span class="lnr lnr-heart"></span>
-                                                </a>
-                                            </div>
-                                            <div class="wrapper-control-item item-add-cart js-action-add-cart">
-                                                <a class="animate-icon-cart" href="#">
-                                                    <span class="lnr lnr-cart"></span>
-                                                </a>
-                                                <svg x="0px" y="0px" width="36px" height="32px" viewbox="0 0 36 32">
-                                                    <path stroke-dasharray="19.79 19.79" fill="none" ,="," stroke-width="2" stroke-linecap="square" stroke-miterlimit="10" d="M9,17l3.9,3.9c0.1,0.1,0.2,0.1,0.3,0L23,11"></path>
-                                                </svg>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <figcaption class="desc text-center">
-                                        <h3>
-                                            <a class="product-name" href="#" id="CommodName">背心</a>
-                                        </h3>
-                                        <span class="price" id="CommodityPrice">$1.55</span>
-                                    </figcaption>
-                                </div>
-                            </figure>
-                            <figure class="item">
-                                <div class="product product-style-1">
-                                    <div class="img-wrapper">
-                                        <a href="#">
-                                            <img src="~/img/10.jpg" alt="product thumbnail" class="img-responsive" id="CommodityImg" />
-                                        </a>
-                                        <div class="product-control-wrapper bottom-right">
-                                            <div class="wrapper-control-item">
-                                                <a class="js-quick-view" href="#" type="button" data-toggle="modal" data-target="#quick-view-product">
-                                                    <span class="lnr lnr-eye"></span>
-                                                </a>
-                                            </div>
-                                            <div class="wrapper-control-item item-wish-list">
-                                                <a class="js-wish-list js-notify-add-wish-list" href="#">
-                                                    <span class="lnr lnr-heart"></span>
-                                                </a>
-                                            </div>
-                                            <div class="wrapper-control-item item-add-cart js-action-add-cart">
-                                                <a class="animate-icon-cart" href="#">
-                                                    <span class="lnr lnr-cart"></span>
-                                                </a>
-                                                <svg x="0px" y="0px" width="36px" height="32px" viewbox="0 0 36 32">
-                                                    <path stroke-dasharray="19.79 19.79" fill="none" ,="," stroke-width="2" stroke-linecap="square" stroke-miterlimit="10" d="M9,17l3.9,3.9c0.1,0.1,0.2,0.1,0.3,0L23,11"></path>
-                                                </svg>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <figcaption class="desc text-center">
-                                        <h3>
-                                            <a class="product-name" href="#" id="CommodName">夹克</a>
-                                        </h3>
-                                        <span class="price" id="CommodityPrice">$4.80</span>
-                                    </figcaption>
-                                </div>
-                            </figure>
-                            <figure class="item">
-                                <div class="product product-style-1">
-                                    <div class="img-wrapper">
-                                        <a href="#">
-                                            <img src="~/img/1.jpg" alt="product thumbnail" class="img-responsive" id="CommodityImg" />
-                                        </a>
-                                        <div class="product-control-wrapper bottom-right">
-                                            <div class="wrapper-control-item">
-                                                <a class="js-quick-view" href="#" type="button" data-toggle="modal" data-target="#quick-view-product">
-                                                    <span class="lnr lnr-eye"></span>
-                                                </a>
-                                            </div>
-                                            <div class="wrapper-control-item item-wish-list">
-                                                <a class="js-wish-list js-notify-add-wish-list" href="#">
-                                                    <span class="lnr lnr-heart"></span>
-                                                </a>
-                                            </div>
-                                            <div class="wrapper-control-item item-add-cart js-action-add-cart">
-                                                <a class="animate-icon-cart" href="#">
-                                                    <span class="lnr lnr-cart"></span>
-                                                </a>
-                                                <svg x="0px" y="0px" width="36px" height="32px" viewbox="0 0 36 32">
-                                                    <path stroke-dasharray="19.79 19.79" fill="none" ,="," stroke-width="2" stroke-linecap="square" stroke-miterlimit="10" d="M9,17l3.9,3.9c0.1,0.1,0.2,0.1,0.3,0L23,11"></path>
-                                                </svg>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <figcaption class="desc text-center">
-                                        <h3>
-                                            <a class="product-name" href="#" id="CommodName">衣服</a>
-                                        </h3>
-                                        <span class="price" id="CommodityPrice">$2.32</span>
-                                    </figcaption>
-                                </div>
-                            </figure>
-                            <figure class="item">
-                                <div class="product product-style-1">
-                                    <div class="img-wrapper">
-                                        <a href="#">
-                                            <img src="~/img/2.jpg" alt="product thumbnail" class="img-responsive" id="CommodityImg" />
-                                        </a>
-                                        <div class="product-control-wrapper bottom-right">
-                                            <div class="wrapper-control-item">
-                                                <a class="js-quick-view" href="#" type="button" data-toggle="modal" data-target="#quick-view-product">
-                                                    <span class="lnr lnr-eye"></span>
-                                                </a>
-                                            </div>
-                                            <div class="wrapper-control-item item-wish-list">
-                                                <a class="js-wish-list js-notify-add-wish-list" href="#">
-                                                    <span class="lnr lnr-heart"></span>
-                                                </a>
-                                            </div>
-                                            <div class="wrapper-control-item item-add-cart js-action-add-cart">
-                                                <a class="animate-icon-cart" href="#">
-                                                    <span class="lnr lnr-cart"></span>
-                                                </a>
-                                                <svg x="0px" y="0px" width="36px" height="32px" viewbox="0 0 36 32">
-                                                    <path stroke-dasharray="19.79 19.79" fill="none" ,="," stroke-width="2" stroke-linecap="square" stroke-miterlimit="10" d="M9,17l3.9,3.9c0.1,0.1,0.2,0.1,0.3,0L23,11"></path>
-                                                </svg>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <figcaption class="desc text-center">
-                                        <h3>
-                                            <a class="product-name" href="#" id="CommodName">夹克</a>
-                                        </h3>
-                                        <span class="price" id="CommodityPrice">$5.20</span>
-                                    </figcaption>
-                                </div>
-                            </figure>
-                            <figure class="item">
-                                <div class="product product-style-1">
-                                    <div class="img-wrapper">
-                                        <a href="#">
-                                            <img src="~/img/13.jpg" alt="product thumbnail" class="img-responsive" id="CommodityImg" />
-                                        </a>
-                                        <div class="product-control-wrapper bottom-right">
-                                            <div class="wrapper-control-item">
-                                                <a class="js-quick-view" href="#" type="button" data-toggle="modal" data-target="#quick-view-product">
-                                                    <span class="lnr lnr-eye"></span>
-                                                </a>
-                                            </div>
-                                            <div class="wrapper-control-item item-wish-list">
-                                                <a class="js-wish-list js-notify-add-wish-list" href="#">
-                                                    <span class="lnr lnr-heart"></span>
-                                                </a>
-                                            </div>
-                                            <div class="wrapper-control-item item-add-cart js-action-add-cart">
-                                                <a class="animate-icon-cart" href="#">
-                                                    <span class="lnr lnr-cart"></span>
-                                                </a>
-                                                <svg x="0px" y="0px" width="36px" height="32px" viewbox="0 0 36 32">
-                                                    <path stroke-dasharray="19.79 19.79" fill="none" ,="," stroke-width="2" stroke-linecap="square" stroke-miterlimit="10" d="M9,17l3.9,3.9c0.1,0.1,0.2,0.1,0.3,0L23,11"></path>
-                                                </svg>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <figcaption class="desc text-center">
-                                        <h3>
-                                            <a class="product-name" href="#" id="CommodName">衣服</a>
-                                        </h3>
-                                        <span class="price" id="CommodityPrice">$3.45</span>
-                                    </figcaption>
-                                </div>
-                            </figure>
-                        </div>
+                                </td>
+                            </tr>
+                        </table>
+
                         <div class="row">
                             <div class="col-md-12 text-right">
                                 <nav>
@@ -544,22 +546,16 @@
                                 <div class="summary">
                                     <div class="desc">
                                         <div class="header-desc">
-                                            <h2 class="product-title">Sald</h2>
+                                            <h2 class="product-title">商品详细信息</h2>
                                             <p class="price" id="CommodityPrice">$2.00</p>
                                             <a>请选择颜色：</a>
                                             <select id="Select1" \d>
-                                                <option>红色</option>
-                                                <option>蓝色</option>
-                                                <option>白色</option>
-                                                <option>粉色</option>
-                                                <option>绿色</option>
                                             </select>
                                             &nbsp;
                                             <p><a href="#">库存：100</a></p>
                                             <p><a href="#">商品销售量：50</a></p>
                                             <p><a href="#">上架状态：上架</a></p>
                                             <p><a href="#">商品详情 ：非常好</a></p>
-                                            <input id="Button1" type="button" value="加入购物车" class="btn btn-brand-ghost pill" />
                                         </div>
                                     </div>
                                 </div>
@@ -596,14 +592,31 @@
 <script>
 
     //类型绑定
+    //绑定  //绑定
     $().ready(function () {
+        Search();
         $.ajax({
             url: "/Commodity/CommodityBindType",
             type: "POST",
             dataType: "JSON",
             success: function (res) {
+                var sp = "";
                 $(res.CommodityTypesSuccess).each(function () {
-                    var sp = "<option value=" + this.CtypeId + ">" + this.TypeName + "</option>";
+                    sp += "<option value=" + this.CtypeId + ">" + this.TypeName + "</option>";
+                })
+                $("#xiala").append(sp);
+            }
+        })
+    })
+    //颜色绑定
+    $().ready(function () {
+        $.ajax({
+            url: "/Commodity/CommodityBindColor",
+            type: "POST",
+            dataType: "JSON",
+            success: function (res) {
+                $(res.ColorInfo).each(function () {
+                    var sp = "<option value=" + this.CommodityId + ">" + this.Color + "</option>";
                     $("#Select1").append(sp);
                 })
             }
@@ -611,33 +624,41 @@
     })
 
     //查询
-    function Inq() {
-        var name = $("#Text1").val();
+    function Search() {
+        var name = $("#SearchName").val();
+        var CtypeId = $("#selectid").val();
         $.ajax({
-            url: "/Commodity/ComodityInquire",
+            url: "/Commodity/CommodityShow",
             type: "POST",
             dataType: "JSON",
-            data: name,
+            data:
+            {
+                name: name,
+                CtypeId: CtypeId,
+            },
             success: function (res) {
-                $(res).each(function () {
-                    var str = "<tr>"
+                var tr = "";
+                $(res.CommodityInfoSuccess).each(function () {
+                    tr += "<tr>"
                         + "<td>" + this.CommodName + "</td>"
                         + "<td>" + this.SystematicId + "</td>"
-                        + "<td>" + this.CommodityImg + "</td>"
+                        + "<td>" + "<img src='" + this.CommodityImg + "' style='width:100px;height:100px;'/>" + "</td>"
                         + "<td>" + this.CommodityPrice + "</td>"
                         + "<td>" + this.CommodityDetalis + "</td>"
                         + "<td>" + this.RegisterDate + "</td>"
                         + "<td>" + this.PutNumber + "</td>"
                         + "<td>" + this.CountNumber + "</td>"
+                        + '<td><a onclick="Upt(' + this.CommodityId + ')">下架</a></td>'
                         + "</tr>";
                 })
-                
+                $("#body").html(tr);
             }
-        })
+        });
     }
 
 
 </script>
+
 
 
 

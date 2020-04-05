@@ -47,7 +47,7 @@
   <ItemGroup>
     <Reference Include="ApiSDKClient, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\..\EcommerceApi\EcommerceApi\ApiSDKClient\bin\Debug\ApiSDKClient.dll</HintPath>
+      <HintPath>..\..\..\1\EcommerceApi\EcommerceApi\ApiSDKClient\bin\Debug\ApiSDKClient.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System" />
@@ -106,6 +106,10 @@
     <Reference Include="Newtonsoft.Json">
       <HintPath>..\packages\Newtonsoft.Json.11.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
     </Reference>
+    <Reference Include="Webdiyer.MvcPager, Version=3.0.2015.802, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\Webdiyer.MvcPager.dll</HintPath>
+    </Reference>
     <Reference Include="WebGrease">
       <Private>True</Private>
       <HintPath>..\packages\WebGrease.1.6.0\lib\WebGrease.dll</HintPath>
@@ -135,6 +139,12 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="UpLoad.ashx.cs">
+      <DependentUpon>UpLoad.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="Uplod.ashx.cs">
+      <DependentUpon>Uplod.ashx</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\images\login\ldy.jpg" />
@@ -550,6 +560,11 @@
     <Content Include="Content\LayUI\lib\ueditor\ueditor.parse.js" />
     <Content Include="Content\LayUI\lib\ueditor\ueditor.parse.min.js" />
     <Content Include="Content\LayUI\login.css" />
+    <Content Include="css\bootstrap.css" />
+    <Content Include="css\global.css" />
+    <Content Include="css\layui.css" />
+    <Content Include="css\main.css" />
+    <Content Include="css\personal.css" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
@@ -652,6 +667,7 @@
     <Content Include="Scripts\Comt\jquery.validate.unobtrusive.min.js" />
     <Content Include="Scripts\Comt\layui.js" />
     <Content Include="Scripts\Comt\modernizr-2.8.3.js" />
+    <Content Include="Scripts\Comt\MvcPager.js" />
     <Content Include="Scripts\Comt\rellax.min.js" />
     <Content Include="Scripts\Comt\select2.full.min.js" />
     <Content Include="Scripts\Comt\slick.min.js" />
@@ -691,6 +707,17 @@
     <Content Include="Views\Commodity\HomePage.cshtml" />
     <Content Include="Views\User\FindPwd.cshtml" />
     <Content Include="Views\User\Permit.cshtml" />
+    <Content Include="Views\Commodity\CommodityAdd.cshtml" />
+    <Content Include="Views\Commodity\CommodityColor.cshtml" />
+    <Content Include="Views\Commodity\CommodityPage.cshtml" />
+    <Content Include="Views\Commodity\CommodityShows.cshtml" />
+    <Content Include="Views\Commodity\CommodityType.cshtml" />
+    <Content Include="Views\Order\AddOrderInfo.cshtml" />
+    <Content Include="Views\Order\ShowOrderInfo.cshtml" />
+    <Content Include="Views\Order\UpdateOrderInfo.cshtml" />
+    <Content Include="UpLoad.ashx" />
+    <Content Include="Uplod.ashx" />
+    <Content Include="Views\Commodity\UpdateComodity.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

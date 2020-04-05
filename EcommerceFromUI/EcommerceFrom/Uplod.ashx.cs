@@ -22,7 +22,7 @@ namespace EcommerceFrom
             {
                 HttpPostedFile file = context.Request.Files[i];
                 //上传的文件保存到目录(为了保证文件名不重复，加个Guid)
-                path = "/Tupian/" + Guid.NewGuid().ToString() + file.FileName;
+                path = "/img/" + Guid.NewGuid().ToString() + file.FileName;
                 file.SaveAs(context.Request.MapPath(path));//必须得是相对路径
 
             }

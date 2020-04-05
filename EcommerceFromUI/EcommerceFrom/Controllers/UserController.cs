@@ -203,20 +203,20 @@ namespace EcommerceFrom.Controllers
         /// </summary>
         /// <param name="userGetRequest"></param>
         /// <returns></returns>
-        public JsonResult GetUserInfo(UserGetPerRequest userGetPerRequest)
-        {
-            var id = Request["Uid"];
-            if (id == null)
-            {
-                return Json(new { Name = "没有数据" }, JsonRequestBehavior.AllowGet);
-            }
-            else
-            {
-                userGetPerRequest.Uid = Convert.ToInt32(id.ToString());
-                var res = bll.GetUserInfo(userGetPerRequest);
-                return Json(res);
-            }
+        //public JsonResult GetUserInfo(UserGetPerRequest userGetPerRequest)
+        //{
+        //    var id = Request["Uid"];
+        //    if (id == null)
+        //    {
+        //        return Json(new { Name = "没有数据" }, JsonRequestBehavior.AllowGet);
+        //    }
+        //    else
+        //    {
+        //        userGetPerRequest.Uid = Convert.ToInt32(id.ToString());
+        //        var res = bll.GetUserInfo(userGetPerRequest);
+        //        return Json(res);
+        //    }
 
-        }
+        //}
     }
 }

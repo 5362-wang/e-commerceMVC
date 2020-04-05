@@ -1,13 +1,14 @@
 ﻿
 @{
-    ViewBag.Title = "CommodityPage";
+    //ViewBag.Title = "CommodityPage";
+    Layout = null;
 }
 
 <!DOCTYPE html>
 <html>
 <head>
     <meta charset="utf-8">
-    <title>Layui</title>
+    <title>添加商品</title>
     <meta name="renderer" content="webkit">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
@@ -29,17 +30,18 @@
                 <select id="xiala" class="layui-input">
                 </select>
             </form>
-            
+
         </div>
     </div>
     <div class="layui-form-item">
         <label class="layui-form-label">添加图片</label>
         <div class="layui-input-inline">
             <form id="fid" method="post">
-                <input id="img" type="file" />
+                <input name="img" type="file" />
             </form>
         </div>
     </div>
+
     <div class="layui-form-item">
         <label class="layui-form-label">商品价格</label>
         <div class="layui-input-inline">
@@ -53,13 +55,6 @@
             <div class="layui-input-block">
                 <input type="text" name="date" id="date1" autocomplete="off" class="layui-input">
             </div>
-        </div>
-    </div>
-    <div class="layui-form-item" pane="">
-        <label class="layui-form-label">上架状态</label>
-        <div class="layui-input-block">
-            <input type="radio" name="sex" value="上" title="上架" checked=""> 上架
-            <input type="radio" name="sex" value="下" title="未上架">  未上架
         </div>
     </div>
     <div class="layui-form-item">
@@ -78,9 +73,8 @@
             </div>
         </div>
     </div>
-    <input id="Button1" type="button" value="添加" class="layui-btn" lay-submit="" lay-filter="demo2" onclick="add()" />
- 
 
+    <input id="Button1" type="button" value="添加" class="layui-btn" lay-submit="" lay-filter="demo2" onclick="add()" />
     <script src="~/Scripts/Comt/layui.js" charset="utf-8"></script>
     <!-- 注意：如果你直接复制所有代码到本地，上述js路径需要改成你本地的 -->
 
@@ -102,7 +96,7 @@
             success: function (res) {
                 var sp = "";
                 $(res.CommodityTypesSuccess).each(function () {
-                     sp += "<option value=" + this.CtypeId + ">" + this.TypeName + "</option>";
+                    sp += "<option value=" + this.CtypeId + ">" + this.TypeName + "</option>";
                 })
                 $("#xiala").append(sp);
             }
@@ -125,7 +119,6 @@
                     CommodityImg: data,
                     CommodityPrice: $("#price").val(),
                     CommodityDetalis: $("#date1").val(),
-                    RegisterDate: $("input[name='sex']:checked").val(),
                     PutNumber: $("#date2").val(),
                     CountNumber: $("#kucun").val()
                 };
@@ -134,12 +127,10 @@
                     type: "POST",
                     dataType: "Json",
                     data: info,
-     
                     success: function (res) {
-                        alert($("#xiala").val());
                         if (res.CommoditySuccess == true) {
                             alert("添加成功");
-                            
+                            location.href = "/Commodity/CommodityShows";
                         }
                         else {
                             alert("添加失败");

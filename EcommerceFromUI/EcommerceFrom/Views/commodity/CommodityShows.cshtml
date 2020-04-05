@@ -1,4 +1,8 @@
-﻿
+﻿@{
+    //ViewBag.Title = "CommodityPage";
+    Layout = null;
+}
+@using Webdiyer.WebControls.Mvc
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -41,10 +45,9 @@
                 <div class="layui-tab-content larry-personal-body clearfix mylog-info-box">
                     <!-- 操作日志 -->
                     <div class="layui-tab-item layui-field-box layui-show">
-                        <table class="layui-table table-hover" lay-even="" lay-skin="nob">
+                        <table class="layui-table table-hover" lay-even="" lay-skin="nob" id="body">
                             <thead>
                                 <tr>
-                                    <td><input id="Checkbox1" type="checkbox" /></td>
                                     <td>商品名称</td>
                                     <td>商品类别</td>
                                     <td>商品图片</td>
@@ -53,19 +56,20 @@
                                     <td>上架状态</td>
                                     <td>商品销售量</td>
                                     <td>商品库存</td>
+                                    <td>操作</td>
                                 </tr>
                             </thead>
                             <tbody id="body">
                             </tbody>
                         </table>
-                        <input id="Button1" type="button" value="加入购物车" />
                         <script src="~/Scripts/jquery-3.3.1.min.js"></script>
                         <script src="~/Scripts/jquery.validate-vsdoc.js"></script>
                         <script src="~/Scripts/jquery.unobtrusive-ajax.min.js"></script>
                         <script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
                         <script>
-                            //绑定  //绑定
+                            //绑定类型
                             $().ready(function () {
+                                Search();
                                 $.ajax({
                                     url: "/Commodity/CommodityBindType",
                                     type: "POST",
@@ -81,24 +85,31 @@
                             })
                             //查询
                             function Search() {
-                                
+                                var name = $("#SearchName").val();
+                                var CtypeId = $("#selectid").val();
                                 $.ajax({
                                     url: "/Commodity/CommodityShow",
                                     type: "POST",
                                     dataType: "JSON",
+                                    data:
+                                    {
+                                        name: name,
+                                        CtypeId: CtypeId,
+                                    },
                                     success: function (res) {
                                         var tr = "";
                                         $(res.CommodityInfoSuccess).each(function () {
                                             tr += "<tr>"
-                                                + "<td>" + "<img src='" + this.CommodityImg + "' style='width:100px;height:100px;'/>" + "</td>"
-                                                + "<td>" + this.CommodName + "</td>"
+                                                + "<td>" + this.CommodName + "</td>" 
                                                 + "<td>" + this.SystematicId + "</td>"
-                                                + "<td>" + this.CommodityImg + "</td>"
+                                                + "<td>" + "<img src='" + this.CommodityImg + "' style='width:100px;height:100px;'/>" + "</td>"
                                                 + "<td>" + this.CommodityPrice + "</td>"
                                                 + "<td>" + this.CommodityDetalis + "</td>"
-                                                + "<td>" + this.RegisterDate + "</td>"
+                                                + "<td>" + (this.RegisterDate == 1 ? '上架' : '下架') + "</td>"
                                                 + "<td>" + this.PutNumber + "</td>"
-                                                + "<td>" + this.CountNumber + "</td>"   
+                                                + "<td>" + this.CountNumber + "</td>"
+                                                + '<td><a onclick="Upt(' + this.CommodityId + ')">下架</a></td>'
+                                                + '<td><a onclick="zhuangtai(' + this.CommodityId + ')">修改</a></td>'
                                                 + "</tr>";
                                         })
                                         $("#body").html(tr);
@@ -106,13 +117,54 @@
                                 });
                             }
 
+                            //修改状态
+                            function Upt(id) {
+                                $.ajax({
+                                    url: "/Commodity/CommodityUpt",
+                                    type: "POST",
+                                    dataType: "JSON",
+                                    data: {
+                                        Id: id,
+                                    },
+                                    success: function (res) {
+                                        if (res.Status == true) {
+                                            alert("修改成功");
+                                        }
+                                        else {
+                                            alert("修改失败");
+                                        }
+                                    }
+                                })
+                            }
+
+                            //修改
+                            function zhuangtai(id) {
+                                location.href = "/Commodity/UpdateComodity/?id="+id;
+                                //$.ajax({
+                                //    url: "/Commodity/CommodityUpdateOne",
+                                //    type: "POST",
+                                //    dataType: "JSON",
+                                //    data: {
+                                //        Id: id,
+                                //    },
+                                //    success: function (res) {
+                                //        if (res.CommUpt == true) {
+                                //            location.href = "/Commodity/UpdateCommodity";
+                                //        }
+                                //    }
+                                //})
+                            }
+
+
                         </script>
                     </div>
                 </div>
+
             </div>
         </div>
     </section>
     <script src="~/Scripts/Comt/layui.js"></script>
+    <script src="~/Scripts/Comt/MvcPager.js"></script>
 </body>
 </html>
 
