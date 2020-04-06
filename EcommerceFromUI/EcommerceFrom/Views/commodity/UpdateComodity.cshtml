@@ -169,6 +169,8 @@
             })
 
     }
+
+
     function add() {
         var Img = new FormData(($("#fid")[0]));
         $.ajax({
@@ -188,12 +190,12 @@
                     CountNumber: $("#kucun").val()
                 };
                 $.ajax({
-                    url: "/Commodity/CommodityAddadd",
+                    url: "/Commodity/CommodityUpdate",
                     type: "POST",
                     dataType: "Json",
                     data: info,
                     success: function (res) {
-                        if (res.CommoditySuccess == true) {
+                        if (res.CommodityUpdate == true) {
                             alert("修改成功");
                             location.href = "/Commodity/CommodityShows";
                         }
